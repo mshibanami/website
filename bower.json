@@ -1,0 +1,7 @@
+{
+  "name": "My Product",
+
+  "dependencies": {
+    "modernizr": "2.8.x"
+  }
+}

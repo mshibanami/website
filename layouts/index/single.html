@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="{{ .Params.lang }}">
+  <head>
+    <base href="../">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ .Site.Title }}</title>
+
+    <meta name="author" content="{{ .Site.Params.Author }}">
+    <meta name="description" content="{{ .Description }}">
+    <meta name="keywords" content="{{delimit .Keywords ","}}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}apple-touch-icon.png">
+    <meta property="og:description" content="{{ .Description }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:locale" content="{{ .Params.lang }}_{{ index .Site.Params.Countries .Params.lang }}">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/compiled/style.css">
+
+    <script src="bower_components/modernizr/modernizr.js"></script>
+  </head>
+
+  <body>
+    {{ partial "header.html" . }}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>{{ .Site.Title }}</h1>
+          <p>{{ .Params.hello_world }}</p>
+        </div>
+      </div>
+    </div>
+
+    {{ partial "footer.html" . }}
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+  </body>
+</html>

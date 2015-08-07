@@ -1,0 +1,25 @@
+baseurl = "https://example.com/your-site-url"
+title = "Your Site Name"
+
+ignoreFiles = ["\\.(sass|scss|less|ts|coffee)$"]
+
+[params]
+  Author = "Your Name"
+  CopyrightYear = "20XX"
+
+  TwitterID = "YourTwitterID"
+  GoogleAnalyticsID = "UA-XXXXX-X"
+
+  # First element is default language.
+  SupportLanguages = ["en", "ja"]
+
+  [params.Languages]
+    en = "English"
+    fr = "French"
+    ja = "日本語"
+
+  # For Open Graph etc.
+  [params.Countries]
+    en = "US"
+    fr = "FR"
+    ja = "JP"

@@ -1,0 +1,20 @@
+<div id="header">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <span>
+          {{ range $code := .Site.Params.SupportLanguages }}
+
+            {{ if ne $code $.Params.lang }}
+
+              <a href="{{ $code }}/" target="_self">
+                {{ index $.Site.Params.Languages $code }}
+              </a>
+
+            {{ end }}
+          {{ end }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
