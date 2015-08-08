@@ -1,9 +1,8 @@
 +++
 URL = '/en/'
-Description  = 'This is Hugo Boilerplate.'
-Keywords = ['Hugo','Boilerplate']
+Description  = "This is mshibanami's web site."
+Keywords = ['mshibanami']
 
 lang = 'en'
 
-hello_world = 'Hello world! This is Hugo Boilerplate.'
 +++

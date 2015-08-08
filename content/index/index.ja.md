@@ -1,9 +1,8 @@
 +++
 URL = '/ja/'
-Description  = 'Hugo プロジェクト用テンプレート'
-Keywords = ['Hugo','テンプレート']
+Description  = 'mshibanami の Web サイトです。'
+Keywords = ['mshibanami']
 
 lang = 'ja'
 
-hello_world = 'ようこそ！これは Hugo プロジェクト用のテンプレートです。'
 +++

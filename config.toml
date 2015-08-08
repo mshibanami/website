@@ -1,25 +1,23 @@
-baseurl = "https://example.com/your-site-url"
-title = "Your Site Name"
+baseurl = "https://mshibanami.github.io/"
+title = "mshibanami.github.io"
 
 ignoreFiles = ["\\.(sass|scss|less|ts|coffee)$"]
 
 [params]
-  Author = "Your Name"
-  CopyrightYear = "20XX"
+  Author = "mshibanami"
+  CopyrightYear = "2015"
 
-  TwitterID = "YourTwitterID"
-  GoogleAnalyticsID = "UA-XXXXX-X"
+  TwitterID = "mshibanami"
+  GoogleAnalyticsID = "UA-46019833-3"
 
   # First element is default language.
   SupportLanguages = ["en", "ja"]
 
   [params.Languages]
     en = "English"
-    fr = "French"
     ja = "日本語"
 
   # For Open Graph etc.
   [params.Countries]
     en = "US"
-    fr = "FR"
     ja = "JP"
