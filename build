@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -ex
+
+npm install
+
+static/node_modules/.bin/bower install
+
+bundle install
+bundle exec compass compile -e production --force
+
+rm -rf public
+
+if type hugo &>/dev/null; then
+  hugo
+fi
