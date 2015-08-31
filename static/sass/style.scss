@@ -2,4 +2,28 @@
 
 @import "compass";
 @import "compass/reset";
-@import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: bold;
+}
+
+#header {
+  padding-top: 20px;
+}
+
+.apps {
+  li > div {
+    vertical-align: middle;
+  }
+
+  h4 {
+    margin: 0 0 5px;
+  }
+}
+
+.app-img {
+  height: 64px;
+  width: same-as-width;
+}

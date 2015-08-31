@@ -1,5 +1,5 @@
 baseurl = "https://mshibanami.github.io/"
-title = "mshibanami.github.io"
+title = "mshibanami"
 
 ignoreFiles = ["\\.(sass|scss|less|ts|coffee)$"]
 
