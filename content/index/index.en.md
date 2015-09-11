@@ -8,5 +8,5 @@ lang = 'en'
 apps = 'Apps'
 blog = 'Blog'
 
-randomtube_description = 'An iOS app that searches many cool videos on YouTube.'
+randomtube_description = 'The iOS app that lets you find many cool videos on YouTube.'
 +++
