@@ -10,14 +10,14 @@ ignoreFiles = ["\\.(sass|scss|less|ts|coffee)$"]
   TwitterID = "mshibanami"
   GoogleAnalyticsID = "UA-46019833-3"
 
-  # First element is default language.
+  # First element is the default language.
   SupportLanguages = ["en", "ja"]
 
   [params.Languages]
     en = "English"
     ja = "日本語"
 
-  # For Open Graph etc.
+  # For Open Graph and so on.
   [params.Countries]
     en = "US"
     ja = "JP"
