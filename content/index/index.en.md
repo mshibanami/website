@@ -1,12 +1,13 @@
-+++
-URL = '/en/'
-Description  = "mshibanami's web site."
-Keywords = ['mshibanami']
+---
+URL: /en/
+Description: mshibanami's web site.
+Keywords:
+  - mshibanami
 
-lang = 'en'
+lang: en
 
-apps = 'Apps'
-blog = 'Blog'
+apps: Apps
+blog: Blog
 
-randomtube_description = 'The iOS app that lets you find many cool videos on YouTube.'
-+++
+randomtube_description: The iOS app that lets you find many cool videos on YouTube.
+---

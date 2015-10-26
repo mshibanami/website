@@ -1,0 +1,19 @@
+{{ partial "header.html" . }}
+
+<section id="main">
+  <header class="post-header">
+    <p class="post-title"><a href="{{ .Permalink }}">{{ .Title }} {{ if .Draft }}:: DRAFT{{end}}</a></p>
+    <p class="post-meta">{{ .Date.Format "2006年1月2日" }} - 所要時間:{{ .ReadingTime }} 分 </p>
+  </header>
+  <div>
+    {{ (index $.Site.Data .Params.lang).tags }}: {{ range .Params.tags }} {{ . }} {{ end }}
+  </div>
+  <div>
+    {{ (index $.Site.Data .Params.lang).categories }}: {{ range .Params.categories }} {{ . }} {{ end }}
+  </div>
+  <article itemprop="articleBody" id="content">
+    {{ .Content }}
+  </article>
+</section>
+
+{{ partial "footer.html" . }}

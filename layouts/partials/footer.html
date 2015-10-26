@@ -1,9 +1,17 @@
-<div id="footer">
-  <div class="container">
-    <div class="row text-right">
-      <div class="col-md-12">
-        <span>© {{ .Site.Params.CopyrightYear }} <a href="https://twitter.com/{{ .Site.Params.TwitterID }}">{{ .Site.Params.Author }}</a></span>
+    <div id="footer">
+      <div class="container">
+        <div class="row text-right">
+          <div class="col-md-12">
+            <span>© {{ .Site.Params.CopyrightYear }} <a href="https://twitter.com/{{ .Site.Params.TwitterID }}">{{ .Site.Params.Author }}</a></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <script src="{{ .Site.BaseURL }}node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="{{ .Site.BaseURL }}node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
