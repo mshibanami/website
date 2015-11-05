@@ -94,7 +94,9 @@ puts sprintf("📦  Now Compressing CSS files ...")
 cssFiles = {
   "public/css/compiled/style.css" => [
     "public/index.html",
-    "public/[a-z][a-z]/index.html"
+    "public/[a-z][a-z]/index.html",
+    "public/[a-z][a-z]/*/index.html",
+    "public/[a-z][a-z]/*/*/index.html",
   ]
 }
 purifyCss(cssFiles)
