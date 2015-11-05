@@ -71,7 +71,7 @@ def getSettings
     "\\.js$",
 
     # Don't include bower_components, because Modernizr doesn't have "modernizr.min.js".
-    ["node_modules", "modernizr/feature-detects", "test",],
+    ["node_modules", "modernizr/feature-detects", "test", "highlightjs"],
 
     Proc.new{ |file|
       cmd = sprintf("%s -o %s %s", UGLIFY_JS, file.path, file.path)
@@ -92,12 +92,7 @@ end
 puts sprintf("📦  Now Compressing CSS files ...")
 
 cssFiles = {
-  "public/css/compiled/style.css" => [
-    "public/index.html",
-    "public/[a-z][a-z]/index.html",
-    "public/[a-z][a-z]/*/index.html",
-    "public/[a-z][a-z]/*/*/index.html",
-  ]
+  "public/css/compiled/style.css" => getFilePaths(FILES_ROOT, "\\.html$", ["node_modules", "bower_components", "highlightjs"])
 }
 purifyCss(cssFiles)
 
