@@ -1,6 +1,6 @@
 ---
 title: 言語別の数値単位表
-date: 2016-02-07T09:00:00.000Z
+date: 2016-02-07T09:00:00-09:00
 URL: /ja/blog/unit-prefixes-by-languages
 
 lang: ja
