@@ -2,9 +2,11 @@
 
 <section id="main">
   <header class="post-header">
-    <p class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+    <h1>{{ .Title }}</h1>
     <p class="post-meta">{{ partial "date.html" . }}</p>
   </header>
+
+  <hr>
 
   <article itemprop="articleBody" id="content">
     {{ .Content }}
