@@ -31,6 +31,6 @@ h1, h2, h3, h4, h5, h6 {
 // Bootstrap3 では table タグを使う場合はclassを指定してやる必要がある為、extendを使うことで代用している。
 table{
   @extend .table;
-  @extend .table-striped;
   @extend .table-bordered;
+  @extend .table-hover;
 }
