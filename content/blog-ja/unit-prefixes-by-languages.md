@@ -16,7 +16,7 @@ lang: ja
 
 なので前にこんな表を作った。
 
-|                     | English [en] | Spanish [es] | French [fr] | German [de] | Dutch [nl] | Polish [pl] | Italian [it] | Japanese [ja] | Chinese(Simplified) [zh-hans] | Chinese(Traditional) [zh-hant]           | Korean [kr] | Vietnamese [vi] |
+|                     | English [en] | Spanish [es] | French [fr] | German [de] | Dutch [nl] | Polish [pl] | Italian [it] | Japanese [ja] | Chinese (Simplified) [zh-hans] | Chinese (Traditional) [zh-hant]           | Korean [kr] | Vietnamese [vi] |
 |:--------------------|:-------------|:-------------|:------------|:------------|:-----------|:------------|:-------------|:--------------|:------------------------------|:-----------------------------------------|:------------|:----------------|
 | **10<sup>0</sup>**  |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
 | **10<sup>1</sup>**  |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
@@ -30,7 +30,7 @@ lang: ja
 | **10<sup>9</sup>**  | G            | G            | G           | Mrd.        | ?          | ?           | <none>       |               |                               |                                          |             | Tỷ              |
 | **10<sup>10</sup>** |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
 | **10<sup>11</sup>** |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
-| **10<sup>12</sup>** | T            | T            | T           | Bio.        | ?          | ?           | <none>       | 兆            | 万亿                          | 兆 / 萬億                                | 조          |                 |
+| **10<sup>12</sup>** | T            | T            | T           | Bio.        | ?          | ?           | <none>       | 兆            | 万亿                          | 萬億 <br> 兆                             | 조          |                 |
 | **10<sup>13</sup>** |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
 | **10<sup>14</sup>** |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
 | **10<sup>15</sup>** | P            | P            | P           | Brd.        | ?          | ?           | <none>       |               |                               |                                          |             |                 |
