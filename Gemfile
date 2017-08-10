@@ -12,5 +12,6 @@ gem 'slim'
 gem 'zurb-foundation'
 
 group :nanoc do
-  gem 'guard-nanoc'
+    gem 'guard-livereload'
+    gem 'guard-nanoc'
 end
