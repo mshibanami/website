@@ -2,11 +2,10 @@
 .*~
 crash.log
 
-/public
+/output/
 bower_components
 node_modules
 .wercker
 
 .sass-cache/
 tmp/
-output/

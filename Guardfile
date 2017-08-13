@@ -21,6 +21,7 @@ guard 'nanoc' do
     watch(%r{^(content|layouts|lib)/.*$})
 end
 
+# rubocop:disable BlockLength
 guard 'livereload' do
     extensions = {
         css: :css,

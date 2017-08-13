@@ -3,13 +3,24 @@
 preprocess do
 end
 
+compile '/index-pre.*' do
+    filter :erb
+    write '/index.html'
+end
+
+compile %r{/index/index\.([a-z]+)\..*} do |code|
+    filter :erb
+    layout '/default.*'
+    write "/#{code[0]}/index.html"
+end
+
 compile '/**/*.html' do
     layout '/default.*'
 end
 
 compile '/**/*.md' do
     filter :commonmarker, [:DEFAULT]
-    layout '/blog-index.*'
+    layout '/blog.*'
 end
 
 route '/**/*.{html,md}' do

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ .Params.lang }}">
+<html lang="<%= @item.identifier %>">
 
 <head>
   <meta charset="utf-8">
@@ -15,9 +15,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="<%= @item[:full_title] %>">
   <meta property="og:image" content="<%= @config[:base_url] %>/apple-touch-icon.png">
-  <meta property="og:description" content="<%= @item[:des
-  cription] %>">
-  <meta property="og:url" content="<%= @config[:base_url] %>/<%= @item.identifier %>">
+  <meta property="og:description" content="<%= @item[:description] %>">
+  <meta property="og:url" content="<%= @config[:base_url] %>/<%= @item[:identifier] %>">
   <meta property="og:locale" content="{{ .Params.lang }}_{{ index .Site.Params.Countries .Params.lang }}">
 
   <link rel="shortcut icon" href="<%= @config[:base_url] %>/favicon.ico" type="image/x-icon">

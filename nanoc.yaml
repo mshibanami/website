@@ -96,3 +96,7 @@ copyright_year: 2015
 google_analytics_id: UA-46019833-3
 title: mshibanami
 twitter_id: mshibanami
+
+# Localization
+supported_languages: ['en', 'ja']
+default_language: en
