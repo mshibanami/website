@@ -8,9 +8,10 @@ gem 'compass'
 gem 'guard'
 gem 'guard-livereload'
 gem 'nanoc'
+gem 'rubocop'
 gem 'slim'
 gem 'zurb-foundation'
 
 group :nanoc do
-  gem 'guard-nanoc'
+    gem 'guard-nanoc'
 end

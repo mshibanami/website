@@ -1,24 +1,27 @@
 #!/usr/bin/env ruby
 
+preprocess do
+end
+
 compile '/**/*.html' do
-  layout '/default.*'
+    layout '/default.*'
 end
 
 compile '/**/*.md' do
-  filter :commonmarker, [:DEFAULT]
-  layout '/default.*'
+    filter :commonmarker, [:DEFAULT]
+    layout '/blog-index.*'
 end
 
 route '/**/*.{html,md}' do
-  if item.identifier =~ '/index.*'
-    '/index.html'
-  else
-    item.identifier.without_ext + '/index.html'
-  end
+    if item.identifier =~ '/index.*'
+        '/index.html'
+    else
+        item.identifier.without_ext + '/index.html'
+    end
 end
 
 compile '/**/*' do
-  write item.identifier.to_s
+    write item.identifier.to_s
 end
 
 layout '/**/*', :erb

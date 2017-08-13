@@ -16,46 +16,46 @@
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
 guard 'nanoc' do
-  watch('nanoc.yaml') # Change this to config.yaml if you use the old config file name
-  watch('Rules')
-  watch(%r{^(content|layouts|lib)/.*$})
+    watch('nanoc.yaml')
+    watch('Rules')
+    watch(%r{^(content|layouts|lib)/.*$})
 end
 
 guard 'livereload' do
-  extensions = {
-    css: :css,
-    scss: :css,
-    sass: :css,
-    js: :js,
-    coffee: :js,
-    html: :html,
-    png: :png,
-    gif: :gif,
-    jpg: :jpg,
-    jpeg: :jpeg,
-    # less: :less, # uncomment if you want LESS stylesheets done in browser
-  }
+    extensions = {
+        css: :css,
+        scss: :css,
+        sass: :css,
+        js: :js,
+        coffee: :js,
+        html: :html,
+        png: :png,
+        gif: :gif,
+        jpg: :jpg,
+        jpeg: :jpeg,
+        # less: :less, # uncomment if you want LESS stylesheets done in browser
+    }
 
-  rails_view_exts = %w(erb haml slim)
+    rails_view_exts = %w[erb haml slim]
 
-  # file types LiveReload may optimize refresh for
-  compiled_exts = extensions.values.uniq
-  watch(%r{output/.+\.(#{compiled_exts * '|'})})
+    # file types LiveReload may optimize refresh for
+    compiled_exts = extensions.values.uniq
+    watch(%r{output/.+\.(#{compiled_exts * '|'})})
 
-  extensions.each do |ext, type|
-    watch(%r{
-          (?:app|vendor)
-          (?:/assets/\w+/(?<path>[^.]+) # path+base without extension
-           (?<ext>\.#{ext})) # matching extension (must be first encountered)
-          (?:\.\w+|$) # other extensions
-          }x) do |m|
-      path = m[1]
-      "/assets/#{path}.#{type}"
+    extensions.each do |ext, type|
+        watch(%r{
+              (?:app|vendor)
+              (?:/assets/\w+/(?<path>[^.]+) # path+base without extension
+               (?<ext>\.#{ext})) # matching extension (must be first encountered)
+              (?:\.\w+|$) # other extensions
+              }x) do |m|
+            path = m[1]
+            "/assets/#{path}.#{type}"
+        end
     end
-  end
 
-  # file needing a full reload of the page anyway
-  watch(%r{app/views/.+\.(#{rails_view_exts * '|'})$})
-  watch(%r{app/helpers/.+\.rb})
-  watch(%r{config/locales/.+\.yml})
+    # file needing a full reload of the page anyway
+    watch(%r{app/views/.+\.(#{rails_view_exts * '|'})$})
+    watch(%r{app/helpers/.+\.rb})
+    watch(%r{config/locales/.+\.yml})
 end

@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - old/*
+  UseCache: false
+
+Lint:
+  Enabled: true
+
+Style/IndentationWidth:
+  Width: 4
