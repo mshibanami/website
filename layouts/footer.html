@@ -1,0 +1,18 @@
+    <div id="footer">
+      <div class="container">
+        <div class="row text-right">
+          <div class="col-md-12">
+            <span>© <%= @config[:copyright_year] %> <a href="https://twitter.com/<%= @config[:twitter_id] %>"><%= @config[:author] %></a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="<%= @config[:base_url] %>/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="<%= @config[:base_url] %>/node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+  <script src="<%= @config[:base_url] %>/highlightjs/highlight.pack.js"></script>
+  <%= render '/google-analytics.*' %>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
