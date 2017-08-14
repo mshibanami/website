@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    noscript
+      meta content=("0; url=#{@config[:default_language]}/") http-equiv="refresh" /
+    javascript:
+      var lang = (window.navigator.userLanguage || window.navigator.language)
+        .replace(/[_-].*/, '') // Country translation not supported
+        .toLowerCase();
+
+      if (lang in #{{@config[:supported_languages]}}) {
+        location.href = lang + '/';
+      }
+      else {
+        location.href = '#{@config[:default_language]}/';
+      }frozen_string_literal
+  body
