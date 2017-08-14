@@ -4,7 +4,7 @@ preprocess do
 end
 
 compile '/index-pre.*' do
-    filter :slim
+    filter :slim, pretty: true
     write '/index.html'
 end
 
@@ -15,7 +15,7 @@ compile %r{^/index/index\.([a-z]+)\..*} do |code|
 end
 
 compile %r{/.*/index/index\.([a-z]+)\..*} do |code|
-    filter :erb
+    filter :slim, pretty: true
     layout '/default.*'
     write "/#{code[0]}/blog/index.html"
 end
@@ -30,7 +30,7 @@ compile '/**/*.md' do
 end
 
 compile '/**/*.slim' do
-    filter :slim
+    filter :slim, pretty: true
 end
 
 route '/**/*.{html,md,slim}' do
