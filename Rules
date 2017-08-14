@@ -45,4 +45,5 @@ compile '/**/*' do
     write item.identifier.to_s
 end
 
-layout '/**/*', :slim, pretty: true
+layout '/**/*.slim', :slim, pretty: true
+layout '/**/*.erb', :erb
