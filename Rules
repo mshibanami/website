@@ -29,7 +29,11 @@ compile '/**/*.md' do
     layout '/blog.*'
 end
 
-route '/**/*.{html,md}' do
+compile '/**/*.slim' do
+    filter :slim
+end
+
+route '/**/*.{html,md,slim}' do
     if item.identifier =~ '/index.*'
         '/index.html'
     else
