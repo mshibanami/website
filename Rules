@@ -8,10 +8,16 @@ compile '/index-pre.*' do
     write '/index.html'
 end
 
-compile %r{/index/index\.([a-z]+)\..*} do |code|
+compile %r{^/index/index\.([a-z]+)\..*} do |code|
     filter :erb
     layout '/default.*'
     write "/#{code[0]}/index.html"
+end
+
+compile %r{/.*/index/index\.([a-z]+)\..*} do |code|
+    filter :erb
+    layout '/default.*'
+    write "/#{code[0]}/blog/index.html"
 end
 
 compile '/**/*.html' do
