@@ -24,10 +24,10 @@ compile /.*\.(#{doc_extensions})/ do
     when %r{/index\..*}
         layout '/content-only.*'
         write '/index.html'
-    when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(?<ext>#{doc_extensions})$}
+    when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(#{doc_extensions})$}
         layout default_layout
         write "/#{$~[:lang]}/#{$~[:id]}.html"
-    when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(?<ext>#{doc_extensions})}
+    when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(#{doc_extensions})}
         layout default_layout
         id = $~[:dir] + '/' + $~[:name]
         write "/#{$~[:lang]}/#{id}/index.html"
