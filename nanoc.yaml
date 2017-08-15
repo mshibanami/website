@@ -100,3 +100,5 @@ twitter_id: mshibanami
 # Localization
 supported_languages: ['en', 'ja']
 default_language: en
+
+supported_document_extensions: ['erb', 'slim', 'markdown', 'md']
