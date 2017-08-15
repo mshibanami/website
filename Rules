@@ -3,41 +3,37 @@
 preprocess do
 end
 
-compile '/index-pre.*' do
-    filter :slim, pretty: true
-    write '/index.html'
-end
+langs = config[:supported_languages].join('|')
+doc_extensions = config[:supported_document_extensions].join('|')
 
-compile %r{^/index/index\.([a-z]+)\..*} do |code|
-    filter :slim, pretty: true
-    layout '/default.slim'
-    write "/#{code[0]}/index.html"
-end
+default_layout = '/default.*'
 
-compile %r{/.*/index/index\.([a-z]+)\..*} do |code|
-    filter :slim, pretty: true
-    layout '/default.slim'
-    write "/#{code[0]}/blog/index.html"
-end
+compile /.*\.(#{doc_extensions})/ do
+    # filters
+    case item[:extension]
+    when 'erb'
+        filter :erb
+    when 'slim'
+        filter :slim, pretty: true
+    when /^markdown|md$/
+        filter :commonmarker, [:DEFAULT]
+    end
 
-compile '/**/*.html' do
-    layout '/default.slim'
-end
-
-compile '/**/*.md' do
-    filter :commonmarker, [:DEFAULT]
-    layout '/blog.*'
-end
-
-compile '/**/*.slim' do
-    filter :slim, pretty: true
-end
-
-route '/**/*.{html,md,slim}' do
-    if item.identifier =~ '/index.*'
-        '/index.html'
+    # layouts and routes
+    case item.identifier
+    when %r{/index\..*}
+        layout '/content-only.*'
+        write '/index.html'
+    when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(?<ext>#{doc_extensions})$}
+        layout default_layout
+        write "/#{$~[:lang]}/#{$~[:id]}.html"
+    when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(?<ext>#{doc_extensions})}
+        layout default_layout
+        id = $~[:dir] + '/' + $~[:name]
+        write "/#{$~[:lang]}/#{id}/index.html"
     else
-        item.identifier.without_ext + '/index.html'
+        write item.identifier.to_s
+        layout default_layout
     end
 end
 
@@ -45,5 +41,6 @@ compile '/**/*' do
     write item.identifier.to_s
 end
 
-layout '/**/*.slim', :slim, pretty: true
 layout '/**/*.erb', :erb
+layout '/**/*.md', :commonmarker, [:DEFAULT]
+layout '/**/*.slim', :slim, pretty: true
