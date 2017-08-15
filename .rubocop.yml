@@ -4,7 +4,16 @@ AllCops:
   UseCache: false
 
 Lint:
-  Enabled: true
+  Enabled: false
 
 Style/IndentationWidth:
   Width: 4
+
+Style/PerlBackrefs:
+  AutoCorrect: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: false
