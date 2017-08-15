@@ -25,9 +25,11 @@ compile /.*\.(#{doc_extensions})/ do
         layout '/content-only.*'
         write '/index.html'
     when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(#{doc_extensions})$}
+        # Full localized pages like the homepage or the blog's top page
         layout default_layout
         write "/#{$~[:lang]}/#{$~[:id]}.html"
     when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(#{doc_extensions})}
+        # Non localized pages like blog's articles
         layout default_layout
         id = $~[:dir] + '/' + $~[:name]
         write "/#{$~[:lang]}/#{id}/index.html"

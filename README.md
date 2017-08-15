@@ -5,8 +5,8 @@
 - index.html (just redirect to `[language code]/index.html`)
 - [language code]/
     - index.html
-    - blog/[article name]/index.html
-    - about/index.html
+    - blog/index.html
+    - blog/[article title]/index.html
     - ...
 
 ## How to edit articles with live preview
