@@ -33,9 +33,6 @@ compile /.*\.(#{doc_extensions})/ do
         layout default_layout
         id = $~[:dir] + '/' + $~[:name]
         write "/#{$~[:lang]}/#{id}/index.html"
-    else
-        write item.identifier.to_s
-        layout default_layout
     end
 end
 
