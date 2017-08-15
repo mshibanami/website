@@ -1,7 +1,9 @@
 doctype html
 html lang="en"
-  == render '/head.slim', pretty: true
+  == render '/head.slim'
   body
+    aaa
     #main
       == yield
-    == render '/footer.slim', pretty: true
+    == render '/footer.slim'
+    == render '/base-scripts.slim'

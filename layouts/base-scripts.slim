@@ -1,0 +1,6 @@
+script src="#{@config[:base_url]}/node_modules/jquery/dist/jquery.min.js"
+script src="#{@config[:base_url]}/node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"
+script src="#{@config[:base_url]}/highlightjs/highlight.pack.js"
+== render '/google-analytics.*'
+javascript:
+  hljs.initHighlightingOnLoad();
