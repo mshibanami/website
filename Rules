@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+# https://github.com/Compass/compass/wiki/nanoc-integration
+require 'compass'
+Compass.add_project_configuration('compass/config.rb')
+
 preprocess do
 end
 
@@ -8,6 +12,11 @@ doc_extensions = config[:supported_document_extensions].join('|')
 
 default_layout = '/default.*'
 
+compile '/**/*.scss' do
+    filter :sass, Compass.sass_engine_options
+    write "/assets/css/compiled/#{File.basename(item.identifier.to_s, '.scss')}.css"
+end
+
 compile /.*\.(#{doc_extensions})/ do
     # filters
     case item[:extension]
@@ -15,7 +24,7 @@ compile /.*\.(#{doc_extensions})/ do
         filter :erb
     when 'slim'
         filter :slim, pretty: true
-    when /^markdown|md$/
+    when /^(markdown|md)$/
         filter :commonmarker, [:DEFAULT]
     end
 
