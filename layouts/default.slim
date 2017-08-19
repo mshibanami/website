@@ -1,9 +1,8 @@
 doctype html
 html lang="en"
-  == render '/head.slim'
+  == render '/partials/head.slim'
   body
-    aaa
     #main
       == yield
-    == render '/footer.slim'
-    == render '/base-scripts.slim'
+    == render '/partials/footer.slim'
+    == render '/partials/base-scripts.slim'
