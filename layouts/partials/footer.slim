@@ -3,5 +3,6 @@
     .row.text-right
       .col-md-12
         span
-          | © #{@config[:copyright_year]}
-          a href="https://twitter.com/#{@config[:twitter_id]}" = @config[:author]
+          = "© #{@config[:copyright_year]} "
+          a href="https://twitter.com/#{@config[:twitter_id]}"
+            = @config[:author]
