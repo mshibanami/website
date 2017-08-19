@@ -7,46 +7,22 @@ Compass.add_project_configuration('compass/config.rb')
 preprocess do
 end
 
-langs = config[:supported_languages].join('|')
-doc_extensions = config[:supported_document_extensions].join('|')
-
-default_layout = '/default.*'
-
-compile '/**/*.scss' do
-    filter :sass, Compass.sass_engine_options
-    write "/assets/css/compiled/#{File.basename(item.identifier.to_s, '.scss')}.css"
-end
-
-compile /.*\.(#{doc_extensions})/ do
+compile '/**/*' do
     # filters
     case item[:extension]
     when 'erb'
         filter :erb
+    when 'scss'
+        filter :sass, Compass.sass_engine_options
     when 'slim'
         filter :slim, pretty: true
     when /^(markdown|md)$/
         filter :commonmarker, [:DEFAULT]
     end
 
-    # layouts and routes
-    case item.identifier
-    when %r{/index\..*}
-        layout '/content-only.*'
-        write '/index.html'
-    when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(#{doc_extensions})$}
-        # Full localized pages like the homepage or the blog's top page
-        layout default_layout
-        write "/#{$~[:lang]}/#{$~[:id]}.html"
-    when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(#{doc_extensions})}
-        # Non localized pages like blog's articles
-        layout default_layout
-        id = $~[:dir] + '/' + $~[:name]
-        write "/#{$~[:lang]}/#{id}/index.html"
-    end
-end
-
-compile '/**/*' do
-    write item.identifier.to_s
+    info = RuleParser.new(item, config)
+    layout info.layout_path if info.layout_path
+    write info.output_path if info.output_path
 end
 
 layout '/**/*.erb', :erb
