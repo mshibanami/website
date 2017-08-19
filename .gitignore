@@ -3,7 +3,6 @@
 crash.log
 
 /output/
-bower_components
 node_modules
 .wercker
 
