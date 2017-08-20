@@ -90,7 +90,6 @@ checks:
     exclude_files: []
 
 author: mshibanami
-base_url: https://mshibanami.github.io
 copyright_year: 2015
 google_analytics_id: UA-46019833-3
 title: mshibanami.github.io
@@ -102,3 +101,9 @@ supported_languages: ['en', 'ja']
 default_language: en
 
 supported_document_extensions: ['erb', 'slim', 'markdown', 'md']
+
+environments:
+  default:
+    base_url: http://localhost:3000
+  production:
+    base_url: https://mshibanami.github.io
