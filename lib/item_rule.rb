@@ -35,12 +35,16 @@ class ItemRule
             @output_path = item.identifier.to_s
         end
     end
+end
 
-    def language_code
-        language.code
-    end
+def output_path
+    ItemRule.new(@item, @config).output_path
+end
 
-    def region_code
-        language.region_code
-    end
+def language
+    ItemRule.new(@item, @config).language
+end
+
+def layout_path
+    ItemRule.new(@item, @config).layout_path
 end

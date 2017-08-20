@@ -21,9 +21,8 @@ compile '/**/*' do
     end
 
     # routes and layouts
-    info = ItemRule.new(item, config)
-    layout info.layout_path if info.layout_path
-    write info.output_path if info.output_path
+    layout layout_path if layout_path
+    write output_path if output_path
 end
 
 layout '/**/*.erb', :erb
