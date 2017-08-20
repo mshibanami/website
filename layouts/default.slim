@@ -1,5 +1,7 @@
+- rule = ItemRule.new(@item, @config)
+
 doctype html
-html lang="en"
+html lang="#{rule.language_code}"
   == render '/partials/head.slim'
   body
     #main

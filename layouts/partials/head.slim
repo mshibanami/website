@@ -1,4 +1,5 @@
 - rule = ItemRule.new(@item, @config)
+
 head
   meta charset="utf-8"
   meta content="IE=edge" http-equiv="X-UA-Compatible"
@@ -6,14 +7,15 @@ head
   title
     = @config[:title]
   meta content="#{@config[:author]}" name="author"
-  meta content="#{@item[:description]}" name="description"
-  meta content="#{@config[:keywords].join(',')}" name="keywords"
+  - if @config[:description]
+    meta content="#{@config[:description]}" name="description"
+  - if @config[:keywords] && @config[:keywords].any?
+    meta content="#{@config[:keywords].join(',')}" name="keywords"
   meta content="website" property="og:type"
-  meta content="#{@item[:full_title]}" property="og:title"
+  meta content="#{@config[:title]}" property="og:title"
   meta content="#{@config[:base_url]}/apple-touch-icon.png" property="og:image"
-  meta content="#{@item[:description]}" property="og:description"
-  meta content="#{@config[:base_url]}/#{@item[:identifier]}" property="og:url"
-  meta content=("#{rule.language_code}_#{rule.region_code}") property="og:locale"
+  meta content="#{@config[:base_url]}#{rule.output_path}" property="og:url"
+  meta content="#{rule.language_code}_#{rule.region_code}" property="og:locale"
   link href="#{@config[:base_url]}/favicon.ico" rel=("shortcut icon") type="image/x-icon"
   link href="#{@config[:base_url]}/apple-touch-icon.png" rel="apple-touch-icon"
   link href="http://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet" type="text/css"

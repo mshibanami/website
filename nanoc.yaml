@@ -89,16 +89,15 @@ checks:
     #   exclude_files: ['blog/page']
     exclude_files: []
 
-
 author: mshibanami
 base_url: https://mshibanami.github.io
 copyright_year: 2015
 google_analytics_id: UA-46019833-3
-title: mshibanami
+title: mshibanami.github.io
 twitter_id: mshibanami
 keywords: []
+description: 
 
-# Localization
 supported_languages: ['en', 'ja']
 default_language: en
 
