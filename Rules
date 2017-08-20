@@ -20,8 +20,10 @@ compile '/**/*' do
         filter :commonmarker, [:DEFAULT]
     end
 
-    # routes and layouts
+    # layout
     layout layout_path if layout_path
+
+    # routes
     write output_path if output_path
 end
 
