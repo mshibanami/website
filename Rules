@@ -20,7 +20,7 @@ compile '/**/*' do
         filter :commonmarker, [:DEFAULT]
     end
 
-    info = RuleParser.new(item, config)
+    info = ItemRule.new(item, config)
     layout info.layout_path if info.layout_path
     write info.output_path if info.output_path
 end

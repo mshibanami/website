@@ -1,3 +1,4 @@
+- rule = ItemRule.new(@item, @config)
 head
   meta charset="utf-8"
   meta content="IE=edge" http-equiv="X-UA-Compatible"
@@ -6,13 +7,13 @@ head
     = @config[:title]
   meta content="#{@config[:author]}" name="author"
   meta content="#{@item[:description]}" name="description"
-  meta content=("{{delimit .Keywords ") name="keywords"
+  meta content="#{@config[:keywords].join(',')}" name="keywords"
   meta content="website" property="og:type"
   meta content="#{@item[:full_title]}" property="og:title"
   meta content="#{@config[:base_url]}/apple-touch-icon.png" property="og:image"
   meta content="#{@item[:description]}" property="og:description"
   meta content="#{@config[:base_url]}/#{@item[:identifier]}" property="og:url"
-  meta content=("{{ .Params.lang }}_{{ index .Site.Params.Countries .Params.lang }}") property="og:locale"
+  meta content=("#{rule.language_code}_#{rule.region_code}") property="og:locale"
   link href="#{@config[:base_url]}/favicon.ico" rel=("shortcut icon") type="image/x-icon"
   link href="#{@config[:base_url]}/apple-touch-icon.png" rel="apple-touch-icon"
   link href="http://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet" type="text/css"
