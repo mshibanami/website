@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -ex
+
+bundle install
+
+rm -rf output
+bundle exec nanoc compile --env=production
