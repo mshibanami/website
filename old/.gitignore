@@ -1,0 +1,8 @@
+/public
+bower_components
+node_modules
+.wercker
+
+# Compass
+.sass-cache
+/static/css/compiled

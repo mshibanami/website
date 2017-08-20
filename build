@@ -5,10 +5,6 @@ set -ex
 npm install
 
 bundle install
-bundle exec compass compile -e production --force
 
-rm -rf public
-
-if type hugo &>/dev/null; then
-  hugo
-fi
+rm -rf output
+bundle exec nanoc compile --env=production

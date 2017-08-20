@@ -1,0 +1,19 @@
+AllCops:
+  Exclude:
+    - old/*
+  UseCache: false
+
+Lint:
+  Enabled: false
+
+Style/IndentationWidth:
+  Width: 4
+
+Style/PerlBackrefs:
+  AutoCorrect: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: false

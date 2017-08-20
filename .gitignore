@@ -1,8 +1,10 @@
-/public
-bower_components
+.DS_Store
+.*~
+crash.log
+
+/output/
 node_modules
 .wercker
 
-# Compass
-.sass-cache
-/static/css/compiled
+.sass-cache/
+tmp/

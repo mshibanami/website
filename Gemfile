@@ -1,4 +1,18 @@
-# encoding: UTF-8
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem "compass", "~> 1.x.x"
+gem 'adsf'
+gem 'commonmarker'
+gem 'compass'
+gem 'guard'
+gem 'guard-livereload'
+gem 'kramdown'
+gem 'nanoc'
+gem 'rubocop'
+gem 'slim'
+gem 'zurb-foundation'
+
+group :nanoc do
+    gem 'guard-nanoc'
+end

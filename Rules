@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+# https://github.com/Compass/compass/wiki/nanoc-integration
+require 'compass'
+Compass.add_project_configuration('compass/config.rb')
+
+preprocess do
+end
+
+compile '/**/*' do
+    # filters
+    case item[:extension]
+    when 'erb'
+        filter :erb
+    when 'scss'
+        filter :sass, Compass.sass_engine_options
+    when 'slim'
+        filter :slim, pretty: true
+    when /^(markdown|md)$/
+        filter :kramdown
+        # filter :commonmarker, [:DEFAULT]
+    end
+
+    # layout
+    layout layout_path if layout_path
+
+    # routes
+    write output_path if output_path
+end
+
+layout '/**/*.erb', :erb
+layout '/**/*.md', :kramdown
+# layout '/**/*.md', :commonmarker, [:DEFAULT]
+layout '/**/*.slim', :slim, pretty: true

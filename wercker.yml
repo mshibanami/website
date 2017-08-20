@@ -1,4 +1,4 @@
-box: phusion/passenger-full
+box: newsdev/rails
 
 build:
   steps:
@@ -6,18 +6,9 @@ build:
       name: Prepare the build
       code: ./build
 
-    - arjen/hugo-build:
-      name: Build
-      version: "0.15"
-
-    - script:
-      name: "Compress"
-      code: ./compress
-
-
 deploy:
   steps:
-    - lukevivier/gh-pages:
+    - lukevivier/gh-pages@0.2.1:
       token: $GITHUB_TOKEN
       repo: mshibanami/mshibanami.github.io
-      basedir: public
+      basedir: output

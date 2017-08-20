@@ -1,15 +1,6 @@
 {
   "dependencies": {
     "bootstrap-sass": "3.3.x",
-    "bower": "1.4.1",
-    "html-minifier": "0.x.x",
-    "jquery": "2.1.x",
-    "normalize-scss": "3.x",
-    "purify-css": "1.x.x",
-    "uglify-js": "2.x.x"
-  },
-  "scripts": {
-    "preinstall": "rm -rf static/node_modules",
-    "postinstall": "mv node_modules static/"
+    "normalize-scss": "3.x"
   }
 }

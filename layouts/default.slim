@@ -1,0 +1,8 @@
+doctype html
+html lang="#{language.code}"
+  == render '/partials/head.slim'
+  body
+    #main
+      == yield
+    == render '/partials/footer.slim'
+    == render '/partials/base-scripts.slim'
