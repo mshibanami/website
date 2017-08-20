@@ -2,6 +2,8 @@
 
 set -ex
 
+npm install
+
 bundle install
 
 rm -rf output
