@@ -8,7 +8,7 @@ build:
 
 deploy:
   steps:
-    - lukevivier/gh-pages:
+    - gh-pages:
       token: $GITHUB_TOKEN
       repo: mshibanami/mshibanami.github.io
       basedir: output
