@@ -9,6 +9,12 @@
     - blog/[article title]/index.html
     - ...
 
+## How to build
+
+```bash
+./build
+```
+
 ## How to edit articles with live preview
 
 1. Install [LiveReload](http://livereload.com/)
