@@ -1,0 +1,6 @@
+#header.grid-x
+  .cell.text-center
+    span
+      - @config[:supported_languages].each do | code |
+        - if code != language.code
+            a href=("/#{code}/") target="_self" #{Language.new(code).original_name}

@@ -2,7 +2,10 @@ doctype html
 html lang="#{language.code}"
   == render '/partials/head.slim'
   body
-    #main
-      == yield
-    == render '/partials/footer.slim'
-    == render '/partials/base-scripts.slim'
+    .grid-container
+      == render '/partials/header.slim'
+      #main.grid-x
+        .cell
+          == yield
+      == render '/partials/footer.slim'
+      == render '/partials/base-scripts.slim'
