@@ -14,7 +14,7 @@ kind: article
 
 なので前にこんな表を作った。
 
-|                     | English [en] | Spanish [es] | French [fr] | German [de] | Dutch [nl] | Polish [pl] | Italian [it] | Japanese [ja] | Chinese (Simplified) [zh-hans] | Chinese (Traditional) [zh-hant]           | Korean [kr] | Vietnamese [vi] |
+|                     | English (en) | Spanish (es) | French (fr) | German (de) | Dutch (nl) | Polish (pl) | Italian (it) | Japanese (ja) | Chinese (Simplified) (zh-hans) | Chinese (Traditional) (zh-hant)           | Korean (kr) | Vietnamese (vi) |
 |:--------------------|:-------------|:-------------|:------------|:------------|:-----------|:------------|:-------------|:--------------|:------------------------------|:-----------------------------------------|:------------|:----------------|
 | **10<sup>0</sup>**  |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
 | **10<sup>1</sup>**  |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
@@ -25,14 +25,14 @@ kind: article
 | **10<sup>6</sup>**  | M            | M            | M           | Mio.        | mln.       | mln         | Mln          |               |                               |                                          |             | Tr              |
 | **10<sup>7</sup>**  |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
 | **10<sup>8</sup>**  |              |              |             |             |            |             |              | 億            | 亿                            | 億                                       | 억          |                 |
-| **10<sup>9</sup>**  | G            | G            | G           | Mrd.        | ?          | ?           | <none>       |               |                               |                                          |             | Tỷ              |
+| **10<sup>9</sup>**  | G            | G            | G           | Mrd.        | ?          | ?           | なし         |               |                               |                                          |             | Tỷ              |
 | **10<sup>10</sup>** |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
 | **10<sup>11</sup>** |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
-| **10<sup>12</sup>** | T            | T            | T           | Bio.        | ?          | ?           | <none>       | 兆            | 万亿                          | 萬億 <br> 兆                             | 조          |                 |
+| **10<sup>12</sup>** | T            | T            | T           | Bio.        | ?          | ?           | なし         | 兆            | 万亿                          | 萬億 <br> 兆                             | 조          |                 |
 | **10<sup>13</sup>** |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
 | **10<sup>14</sup>** |              |              |             |             |            |             |              |               |                               |                                          |             |                 |
-| **10<sup>15</sup>** | P            | P            | P           | Brd.        | ?          | ?           | <none>       |               |                               |                                          |             |                 |
-| **10<sup>16</sup>** |              |              |             |             |            |             |              | 京            | 万万亿 (or 亿亿)              | 萬萬億 (or 億億) <br> 京(Only in Taiwan) | 경          |                 |
+| **10<sup>15</sup>** | P            | P            | P           | Brd.        | ?          | ?           | なし         |               |                               |                                          |             |                 |
+| **10<sup>16</sup>** |              |              |             |             |            |             |              | 京            | 万万亿 (または亿亿)           | 萬萬億 (または億億) <br> 京(台湾のみ)       | 경          |                 |
 
 その時のメモ書き。
 

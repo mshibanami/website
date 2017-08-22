@@ -2,6 +2,7 @@
   .container
     .row.text-right
       .col-md-12
+        span == render '/partials/github-edit-request.slim'
         span
           = "© #{@config[:copyright_year]} "
           a href="https://twitter.com/#{@config[:twitter_id]}"
