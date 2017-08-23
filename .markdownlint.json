@@ -1,0 +1,13 @@
+{
+    "line-length": false,
+    "no-inline-html": {
+        "allowed_elements": [
+            "a",
+            "sup"
+        ]
+    },
+    "MD007": {
+        "indent": 4
+    },
+    "MD012": false
+}
