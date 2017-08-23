@@ -17,7 +17,7 @@ compile '/**/*' do
     when 'slim'
         filter :slim, pretty: true
     when /^(markdown|md)$/
-        filter :kramdown
+        filter :kramdown, input: 'GFM'
         # filter :commonmarker, [:DEFAULT]
     end
 
