@@ -4,9 +4,9 @@ created_at: 2016-02-07T00:00:00-09:00
 kind: article
 ---
 
-Gradleでは基本的にGradleラッパーを介してプログラムが実行されるが、
-このラッパーはメモリを20MBほど消費し、CPUにも多少負荷をかけているので、
-直接プログラムを実行したい。
+Gradleでは基本的にGradleラッパーを介してプログラムが実行される。
+しかしこのラッパーはメモリを20MBほど消費し、CPUにも多少負荷をかけている。
+その為、直接プログラムを実行したい。
 
 `build.gradle`に下記を書く。
 
@@ -56,7 +56,7 @@ for (File f : langFiles) {
 
 jarファイル内のファイルを読み込むのは簡単だが、フォルダを読み込むのは難しい。
 
-http://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file
+<http://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file>
 
 これをなるべくコードは汚さず、runでもjarからでも動くようにしたい。
 
@@ -64,11 +64,12 @@ jarの外に、jar内にあるリソースファイルと同じもののシン�
 冗長だし、libフォルダの中に作ることになるので気持ち悪いが、一番コードを汚さず手軽な方法だと思う。
 
 まず、
+
 ```java
 URL dirUrl = WordReader.class.getClassLoader().getResource("dir");
 ```
 
-としていたところを
+としていたところを、
 
 ```java
 URL dirUrl = WordReader.class.getClassLoader().getResource("./dir");
