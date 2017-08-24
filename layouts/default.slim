@@ -7,5 +7,9 @@ html lang="#{language.code}"
       #main.grid-x
         .cell
           == yield
+        .cell
+          == render '/partials/github-edit-request.slim'
+        .cell
+          == render '/partials/disqus.slim'
       == render '/partials/footer.slim'
       == render '/partials/base-scripts.slim'
