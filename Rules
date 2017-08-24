@@ -17,7 +17,7 @@ compile '/**/*' do
     when 'slim'
         filter :slim, pretty: true
     when /^(markdown|md)$/
-        filter :kramdown, input: 'GFM'
+        filter :kramdown, input: 'GFM', syntax_highlighter: 'rouge'
         # filter :commonmarker, [:DEFAULT]
     end
 
@@ -29,6 +29,6 @@ compile '/**/*' do
 end
 
 layout '/**/*.erb', :erb
-layout '/**/*.md', :kramdown
+layout '/**/*.md', :kramdown, input: 'GFM', syntax_highlighter: 'rouge'
 # layout '/**/*.md', :commonmarker, [:DEFAULT]
 layout '/**/*.slim', :slim, pretty: true
