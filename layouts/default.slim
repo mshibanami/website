@@ -1,15 +1,1 @@
-doctype html
-html lang="#{language.code}"
-  == render '/partials/head.slim'
-  body
-    .grid-container
-      == render '/partials/header.slim'
-      #main.grid-x
-        .cell
-          == yield
-        .cell
-          == render '/partials/github-edit-request.slim'
-        .cell
-          == render '/partials/disqus.slim'
-      == render '/partials/footer.slim'
-      == render '/partials/base-scripts.slim'
+== render '/base.slim', { content: "#{yield}" }
