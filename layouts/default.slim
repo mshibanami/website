@@ -1,1 +1,26 @@
-== render '/base.slim', { content: "#{yield}" }
+doctype html
+html lang="#{language.code}"
+  == render '/partials/head.slim'
+  body
+    .grid-container
+      == render '/partials/header.slim'
+      #main.grid-x
+        - if output_path =~ %r{^/#{language.code}/blog/index.html}
+            .cell
+              == yield
+
+        - if output_path =~ %r{^/#{language.code}/blog/[^/]*/index.html}
+          .cell
+            == yield
+
+        - if output_path =~ %r{^/#{language.code}/index.html}
+          .cell
+            == yield
+      
+      == render '/partials/footer.slim'
+      script src="https://code.jquery.com/jquery-2.2.4.min.js"
+      script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"
+      script src="#{@config[:base_url]}/assets/highlightjs/highlight.pack.js"
+      == render '/partials/google-analytics.slim'
+      javascript:
+        hljs.initHighlightingOnLoad();
