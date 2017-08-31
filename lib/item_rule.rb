@@ -9,12 +9,12 @@ class ItemRule
     # nil if the specified item is localized
     attr_reader :language
 
-    def initialize(item, config)
-        langs = config[:supported_languages].join('|')
-        doc_extensions = config[:supported_document_extensions].join('|')
+    def initialize(identifier, languages, document_extensions)
+        langs = languages.join('|')
+        doc_extensions = document_extensions.join('|')
         default_layout = '/default.*'
 
-        case item.identifier
+        case identifier
         when %r{/index\..*}
             @layout_path = '/content-only.*'
             @output_path = '/index.html'
@@ -30,21 +30,33 @@ class ItemRule
             @output_path = "/#{$~[:lang]}/#{id}/index.html"
             @language = Language.new($~[:lang])
         when /.*(scss|sass)/
-            @output_path = "/assets/css/compiled/#{File.basename(item.identifier.to_s, '.scss')}.css"
+            @output_path = "/assets/css/compiled/#{File.basename(identifier.to_s, '.scss')}.css"
         else
-            @output_path = item.identifier.to_s
+            @output_path = identifier.to_s
         end
     end
 end
 
 def output_path
-    ItemRule.new(@item, @config).output_path
+    ItemRule.new(
+        @item.identifier,
+        @config[:languages],
+        @config[:document_extensions]
+    ).output_path
 end
 
 def language
-    ItemRule.new(@item, @config).language
+    ItemRule.new(
+        @item.identifier,
+        @config[:languages],
+        @config[:document_extensions]
+    ).language
 end
 
 def layout_path
-    ItemRule.new(@item, @config).layout_path
+    ItemRule.new(
+        @item.identifier,
+        @config[:languages],
+        @config[:document_extensions]
+    ).layout_path
 end
