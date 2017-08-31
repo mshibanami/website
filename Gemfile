@@ -10,8 +10,11 @@ gem 'guard'
 gem 'guard-livereload'
 gem 'kramdown'
 gem 'nanoc'
+gem 'nokogiri'
+gem 'rake'
 gem 'rubocop'
 gem 'slim'
+gem 'w3c_validators'
 gem 'zurb-foundation'
 
 group :nanoc do
