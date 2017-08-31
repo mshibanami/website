@@ -10,6 +10,8 @@ end
 compile '/**/*' do
     # filters
     case item[:extension]
+    when /^(asciidoc|adoc)$/
+        filter :asciidoctor
     when 'erb'
         filter :erb
     when 'scss'

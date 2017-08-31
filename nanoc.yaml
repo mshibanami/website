@@ -100,7 +100,7 @@ description:
 supported_languages: ['en', 'ja']
 default_language: en
 
-supported_document_extensions: ['erb', 'slim', 'markdown', 'md']
+supported_document_extensions: ['erb', 'slim', 'markdown', 'md', 'adoc', 'asciidoc']
 
 # Public GitHub repository this repository hosted.
 github_repository: mshibanami/website
