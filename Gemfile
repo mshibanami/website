@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'adsf'
+gem 'asciidoctor'
 gem 'commonmarker'
 gem 'compass'
 gem 'guard'
