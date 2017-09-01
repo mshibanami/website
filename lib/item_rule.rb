@@ -11,19 +11,19 @@ class ItemRule
 
     def initialize(identifier, languages, document_extensions)
         langs = languages.join('|')
-        doc_extensions = document_extensions.join('|')
+        doc_exts = document_extensions.join('|')
         default_layout = '/default.*'
 
         case identifier
         when %r{^/index\.}
             @layout_path = '/content-only.*'
             @output_path = '/index.html'
-        when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(#{doc_extensions})$}
+        when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(#{doc_exts})$}
             # localized pages (e.g. the homepage, the blog's top page)
             @layout_path = default_layout
             @output_path = "/#{$~[:lang]}/#{$~[:id]}.html"
             @language = Language.new($~[:lang])
-        when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(#{doc_extensions})$}
+        when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(#{doc_exts})$}
             # Partially localized pages (e.g. blog's articles)
             @layout_path = default_layout
             id = $~[:dir] + '/' + $~[:name]
