@@ -1,0 +1,24 @@
+{
+    "plugins": [
+        [
+            "remark-lint-heading-increment",
+            false
+        ],
+        [
+            "remark-lint-maximum-line-length",
+            false
+        ],
+        [
+            "remark-lint-no-heading-punctuation",
+            false
+        ],
+        [
+            "remark-lint-maximum-line-length",
+            12
+        ]
+    ],
+    "presets": [
+        "lint-recommended",
+        "lint-consistent"
+    ]
+}
