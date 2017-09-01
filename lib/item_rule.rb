@@ -15,23 +15,24 @@ class ItemRule
         default_layout = '/default.*'
 
         case identifier
-        when %r{/index\..*}
+        when %r{^/index\.}
             @layout_path = '/content-only.*'
             @output_path = '/index.html'
         when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(#{doc_extensions})$}
-            # Full localized pages like the homepage or the blog's top page
+            # localized pages (e.g. the homepage, the blog's top page)
             @layout_path = default_layout
             @output_path = "/#{$~[:lang]}/#{$~[:id]}.html"
             @language = Language.new($~[:lang])
-        when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(#{doc_extensions})}
-            # Non localized pages like blog's articles
+        when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(#{doc_extensions})$}
+            # Partially localized pages (e.g. blog's articles)
             @layout_path = default_layout
             id = $~[:dir] + '/' + $~[:name]
             @output_path = "/#{$~[:lang]}/#{id}/index.html"
             @language = Language.new($~[:lang])
-        when /.*(scss|sass)/
-            @output_path = "/assets/css/compiled/#{File.basename(identifier.to_s, '.scss')}.css"
-        else
+        when /\..*(scss|sass)$/
+            name = File.basename(identifier.to_s, '.scss')
+            @output_path = "/assets/css/compiled/#{name}.css"
+        when %r{^/assets/}
             @output_path = identifier.to_s
         end
     end
