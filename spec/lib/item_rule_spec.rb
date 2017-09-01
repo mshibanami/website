@@ -20,13 +20,13 @@ describe ItemRule do
         v3 = ItemRule.new('/index/en.slim', LANGS, DOC_EXTS)
         expect(v3.output_path).to eq '/en/index.html'
         expect(v3.layout_path).to eq '/default.*'
-        expect(v1.language.code).to eq 'en'
+        expect(v3.language.code).to eq 'en'
     end
 
     it 'accepts allowed languages only' do
-        v3 = ItemRule.new('/index/fr.slim', LANGS, DOC_EXTS)
-        expect(v3.output_path).to eq '/en/index.html'
-        expect(v3.layout_path).to eq '/default.*'
-        expect(v1.language.code).to eq 'en'
+        v1 = ItemRule.new('/index/fr.slim', LANGS, DOC_EXTS)
+        expect(v1.output_path).to eq nil
+        expect(v1.layout_path).to eq nil
+        expect(v1.language).to eq nil
     end
 end

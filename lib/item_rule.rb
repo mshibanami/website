@@ -30,8 +30,12 @@ class ItemRule
             @output_path = "/#{$~[:lang]}/#{id}/index.html"
             @language = Language.new($~[:lang])
         when /\..*(scss|sass)$/
-            name = File.basename(identifier.to_s, '.scss')
+            name = Util.file_basename(
+                identifier.to_s,
+                ['.scss', '.sass'])
             @output_path = "/assets/css/compiled/#{name}.css"
+        when %r{^/assets/img/quiver-image-url/}
+            @output_path = '/quiver-image-url/' + File.basename(identifier.to_s)
         when %r{^/assets/}
             @output_path = identifier.to_s
         end
