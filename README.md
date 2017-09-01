@@ -4,17 +4,30 @@
 
 ## Site map
 
-- index.html (just redirect to `[language code]/index.html`)
+- assets/
+    - img/
+        - quiver-image-url/ (Useful when I import memo from Quiver)
+    - js/
+- index.html (Just redirect to `[language code]/index.html`)
 - [language code]/
     - index.html
     - blog/index.html
     - blog/[article title]/index.html
     - ...
 
-## How to build
+## How to...
+
+### build
 
 ```bash
 ./build
+```
+
+## test
+
+```bash
+rspec
+nanoc check --all
 ```
 
 ## How to edit articles with live preview
