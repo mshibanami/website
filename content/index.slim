@@ -9,7 +9,7 @@ html
         .replace(/[_-].*/, '') // Country translation not supported
         .toLowerCase();
 
-      if (lang in #{{@config[:supported_languages]}}) {
+      if (lang in #{{@config[:languages]}}) {
         location.href = '/' + lang + '/';
       }
       else {

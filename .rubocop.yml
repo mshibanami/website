@@ -9,11 +9,14 @@ Lint:
 Style/IndentationWidth:
   Width: 4
 
+Sytle/MultilineMethodCallBraceLayout:
+  Enabled: false
+
 Style/PerlBackrefs:
   AutoCorrect: false
 
-Style/WordArray:
+Style/SpecialGlobalVars:
   Enabled: false
 
-Style/SpecialGlobalVars:
+Style/WordArray:
   Enabled: false
