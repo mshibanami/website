@@ -24,14 +24,14 @@
 ./build
 ```
 
-## test
+### test
 
 ```bash
 rspec
 nanoc check --all
 ```
 
-## How to edit articles with live preview
+### edit articles with live preview
 
 1. Install [LiveReload](http://livereload.com/)
 2. Run this command:
