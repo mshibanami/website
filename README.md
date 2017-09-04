@@ -1,5 +1,7 @@
 # website
 
+[![build status](https://travis-ci.org/mshibanami/website.svg)](https://travis-ci.org/mshibanami/website)
+
 [![wercker status](https://app.wercker.com/status/3d6ca0281e4d1b65d8069109198245ce/m "wercker status")](https://app.wercker.com/project/bykey/3d6ca0281e4d1b65d8069109198245ce)
 
 ## Site map
