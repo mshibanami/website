@@ -11,3 +11,13 @@ script:
 sudo: false
 git:
   depth: 10
+
+deploy:
+  provider: pages
+  repo: mshibanami/mshibanami.github.io
+  github_token: $GITHUB_TOKEN
+  local_dir: output
+  skip_cleanup: true
+  target_branch: master
+  on:
+    branch: master
