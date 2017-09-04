@@ -1,0 +1,14 @@
+language: ruby
+
+rvm:
+  - "2.3"
+  - "2.4"
+branches:
+  only:
+    - "master"
+script:
+  - bundle exec rake test_ci
+  - bundle exec appraisal install && FOCUS=rouge bundle exec appraisal rake spec
+sudo: false
+git:
+  depth: 10
