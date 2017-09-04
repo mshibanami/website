@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'adsf'
 gem 'asciidoctor'
+gem 'codecov', require: false
 gem 'commonmarker'
 gem 'compass'
 gem 'guard'
@@ -15,6 +16,7 @@ gem 'rake'
 gem 'rspec'
 gem 'rubocop'
 gem 'slim'
+gem 'simplecov', require: false
 gem 'w3c_validators'
 gem 'zurb-foundation'
 
