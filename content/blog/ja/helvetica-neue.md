@@ -8,7 +8,7 @@ kind: article
 --------
 先日、動画アプリを作った。
 
-![randomtube-screenshot.jpg](/img/randomtube-screenshot.jpg)
+![randomtube-screenshot.jpg](/assets/img/randomtube-screenshot.jpg)
 
 シークバーは上のように、左右に経過時間と合計時間がそれぞれ表示されるようになっている。
 経過時間（左時間ラベル）の最大幅はその動画の合計時間の幅にしていて、

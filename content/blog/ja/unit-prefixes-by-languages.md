@@ -6,7 +6,7 @@ kind: article
 
 先日作った動画プレイヤーアプリには、動画の高評価数・低評価数を表示する機能がある。その評価数は、以下のように適切な単位で表示されるようにしている。
 
-![prefix](/img/randomtube-unit-prefix.jpg)
+![prefix](/assets/img/randomtube-unit-prefix.jpg)
 
 これはYouTubeの公式アプリに倣ったものだ。
 
