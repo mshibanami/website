@@ -1,6 +1,10 @@
 # coding: utf-8
+
 require 'rubocop/rake_task'
-require 'rake/testtask'
-require 'rake/clean'    # clean, clobber の二つのタスクを定義
+require 'rspec/core/rake_task'
+require 'rake/clean'
 
 RuboCop::RakeTask.new(:rubocop)
+
+RSpec::Core::RakeTask.new('spec')
+task default: :spec

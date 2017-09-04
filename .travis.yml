@@ -6,8 +6,8 @@ branches:
   only:
     - "master"
 script:
-  - bundle exec rake test_ci
-  - bundle exec appraisal install && FOCUS=rouge bundle exec appraisal rake spec
+  - bundle exec rake spec
+  - ./build
 sudo: false
 git:
   depth: 10
