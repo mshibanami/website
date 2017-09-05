@@ -1,0 +1,52 @@
+---
+title: AsciiDoc tables memo
+created_at: 2017-09-07
+---
+
+= AsciiDoc tables memo
+
+[width="15%"]
+|=======
+|1 |2 |A
+|3 |4 |B
+|5 |6 |C
+|=======
+
+.My Table
+[cols="4,3,28a",options="header",frame="topbot"]
+|=======================================================================
+|Date       |Version | Summary
+|2017/07/11 |0.0.1   | 
+value1
+|2017/07/28 |0.0.2   |
+* value2
+* value3
+|2017/08/03 |0.0.3   |
+* value4
+* value5
+* value6
+|=======================================================================
+
+.My Table
+[cols="9s,50,41",options="header",]
+|=======================================================================
+|A |B |C
+|A Value1
+|B Value1
+|C Value1
+
+|A Value2
+|B Value2
+|C Value2
+
+|A Value3
+|B Value3
+|C Value3
+|=======================================================================
+
+[format="csv",cols="^1,4*2",options="header"]
+|===================================================
+ID,Customer Name,Contact Name,Customer Address,Phone
+include::customers.csv[]
+|===================================================
+
