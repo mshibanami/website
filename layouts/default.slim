@@ -5,11 +5,22 @@ html lang="#{language.code}"
     .grid-container
       == render '/partials/header.slim'
       #main.grid-x
-        .cell
-          == yield
-        .cell
-          == render '/partials/github-edit-request.slim'
-        .cell
-          == render '/partials/disqus.slim'
+        - if output_path =~ %r{^/#{language.code}/blog/index.html}
+            .cell
+              == yield
+
+        - if output_path =~ %r{^/#{language.code}/blog/[^/]*/index.html}
+          .cell
+            == yield
+
+        - if output_path =~ %r{^/#{language.code}/index.html}
+          .cell
+            == yield
+      
       == render '/partials/footer.slim'
-      == render '/partials/base-scripts.slim'
+      script src="https://code.jquery.com/jquery-2.2.4.min.js"
+      script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"
+      script src="#{@config[:base_url]}/assets/js/highlightjs/highlight.pack.js"
+      == render '/partials/google-analytics.slim'
+      javascript:
+        hljs.initHighlightingOnLoad();
