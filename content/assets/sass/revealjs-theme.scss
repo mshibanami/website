@@ -1,0 +1,110 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+// Default mixins and settings -----------------
+@import "../../../node_modules/reveal.js/css/theme/template/mixins";
+@import "../../../node_modules/reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: 42px;
+$mainFont: "Source Sans Pro", Helvetica, sans-serif;
+$headingFont: "Source Sans Pro", Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
+
+$heading1Size: 2.5em;
+$heading2Size: 2em;
+$heading3Size: 1.3em;
+$heading4Size: 1em;
+
+section.has-dark-background {
+  &,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #fff;
+  }
+}
+
+.reveal .slides > section {
+  padding: 0;
+}
+
+// Theme template ------------------------------
+@import "../../../node_modules/reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+.reveal {
+  section {
+    img {
+      margin: 0;
+    }
+
+    .noboder img {
+      border: 0px;
+      box-shadow: none;
+    }
+  }
+
+  ul li {
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-left: 120px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1rem;
+  }
+
+  pre {
+    width: 100%;
+    font-size: 3rem;
+
+    code {
+      padding: 1.5rem;
+      max-height: none;
+    }
+  }
+
+  p {
+    font-size: 4rem;
+  }
+
+  .slides.center {
+    margin: 0;
+    top: 400px;
+  }
+
+  span.red {
+    color: brown;
+  }
+}

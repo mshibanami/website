@@ -1,3 +1,5 @@
+require 'set'
+
 class ItemRule
     # Path of the layout file for specified item
     attr_reader :layout_path
@@ -9,7 +11,7 @@ class ItemRule
     # nil if the specified item is localized
     attr_reader :language
 
-    def initialize(identifier, languages, document_extensions)
+    def initialize(identifier, presentation, languages, document_extensions)
         langs = languages.join('|')
         doc_exts = document_extensions.join('|')
         default_layout = '/default.*'
@@ -19,13 +21,25 @@ class ItemRule
             @layout_path = '/content-only.*'
             @output_path = '/index.html'
         when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(#{doc_exts})$}
-            # localized pages (e.g. the homepage, the blog's top page)
             @layout_path = default_layout
             @output_path = "/#{$~[:lang]}/#{$~[:id]}.html"
             @language = Language.new($~[:lang])
-        when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(#{doc_exts})$}
-            # Partially localized pages (e.g. blog's articles)
-            @layout_path = default_layout
+        when %r{^/(?<dir>.*)/(?<lang>#{langs})/(?<name>.*)\.(?<ext>#{doc_exts})$}
+            if $~[:dir] == 'slides'
+                case DocType.value($~[:ext])
+                when DocType::ASCIIDOC
+                    case presentation
+                    when 'revealjs'
+                        @layout_path = '/slide-asciidoc-revealjs.*'
+                    when 'bespoke'
+                        @layout_path = '/slide-asciidoc-bespoke.*'
+                    end
+                when DocType::MARKDOWN
+                    @layout_path = '/slide-markdown-revealjs.*'
+                end
+            else
+                @layout_path = default_layout
+            end
             id = $~[:dir] + '/' + $~[:name]
             @output_path = "/#{$~[:lang]}/#{id}/index.html"
             @language = Language.new($~[:lang])
@@ -42,26 +56,50 @@ class ItemRule
     end
 end
 
-def output_path
+def item_rule
     ItemRule.new(
         @item.identifier,
+        @item[:presentation],
         @config[:languages],
-        @config[:document_extensions]
-    ).output_path
+        @config[:document_extensions])
+end
+
+def output_path
+    item_rule.output_path
 end
 
 def language
-    ItemRule.new(
-        @item.identifier,
-        @config[:languages],
-        @config[:document_extensions]
-    ).language
+    item_rule.language
 end
 
 def layout_path
-    ItemRule.new(
-        @item.identifier,
-        @config[:languages],
-        @config[:document_extensions]
-    ).layout_path
+    item_rule.layout_path
+end
+
+module DocType
+    # Asciidoc
+    ASCIIDOC = 0
+    # Erb
+    ERB = 1
+    # Scss
+    SCSS = 2
+    # Slim
+    SLIM = 3
+    # MarkDown
+    MARKDOWN = 4
+
+    def self.value(extension)
+        case extension
+        when 'asciidoc', 'adoc'
+            ASCIIDOC
+        when 'erb'
+            ERB
+        when 'scss'
+            SCSS
+        when 'slim'
+            SLIM
+        when 'markdown', 'md'
+            MARKDOWN
+        end
+    end
 end

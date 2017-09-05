@@ -1,0 +1,27 @@
+doctype html
+html lang="#{language.code}"
+  head
+    meta charset="utf-8"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"
+  body
+    .reveal
+      .slides
+        section data-markdown="" data-transition="fade" data-separator="^\n\n\n" data-separator-notes="^Note:"
+          textarea data-template=""
+            == yield
+
+    link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css" rel="stylesheet"
+    link href="#{@config[:base_url]}/assets/css/compiled/revealjs-theme.css" rel="stylesheet"
+    script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"
+    javascript:
+      Reveal.initialize({
+        dependencies: [
+            { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/markdown/markdown.min.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        ],
+        history: true,
+        width: 1600,
+        height: 1000,
+      });
+
+    == render '/partials/google-analytics.slim'

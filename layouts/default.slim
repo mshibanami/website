@@ -1,6 +1,9 @@
 doctype html
 html lang="#{language.code}"
   == render '/partials/head.slim'
+  link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet"
+  link href="#{@config[:base_url]}/assets/css/compiled/style.css" rel="stylesheet"
+
   body
     .grid-container
       == render '/partials/header.slim'
@@ -16,11 +19,10 @@ html lang="#{language.code}"
         - if output_path =~ %r{^/#{language.code}/index.html}
           .cell
             == yield
-      
+
       == render '/partials/footer.slim'
-      script src="https://code.jquery.com/jquery-2.2.4.min.js"
-      script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"
-      script src="#{@config[:base_url]}/assets/js/highlightjs/highlight.pack.js"
-      == render '/partials/google-analytics.slim'
-      javascript:
-        hljs.initHighlightingOnLoad();
+
+    script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"
+    == render '/partials/google-analytics.slim'
+    == render '/partials/highlightjs.slim'
