@@ -5,6 +5,8 @@ created_at: 2017-09-07
 
 = AsciiDoc tables memo
 
+This post is written as AsciiDoc. {config[:base_url]}[See source]
+
 [width="15%"]
 |=======
 |1 |2 |A
