@@ -8,3 +8,7 @@ class Util
         end
     end
 end
+
+def production?
+    ENV['NANOC_ENV'] == 'production'
+end

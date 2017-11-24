@@ -41,3 +41,22 @@ nanoc check --all
     ```
 3. Access <http://localhost:3000/>
 4. Enable LiveReload of your browser
+
+### About slides
+Documents for presentation have `presentation` like this:
+
+```
+---
+presentation: revealjs
+---
+```
+
+These documents are rendered for presentation.
+
+Here are the supported presentation frameworks at a moment:
+
+* AsciiDoc
+    * `revealjs` : [Reveal.js](https://github.com/hakimel/reveal.js) via `asciidoctor-revealjs`
+    * `bespoke` : [Bespoke.js](https://github.com/bespokejs/bespoke) via `asciidoctor-bespoke`
+* MarkDown
+    * `revealjs` : Reveal.js (embedded)

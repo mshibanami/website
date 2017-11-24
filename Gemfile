@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 
 gem 'adsf'
 gem 'asciidoctor'
+gem 'asciidoctor-bespoke'
+gem 'asciidoctor-revealjs'
 gem 'codecov', require: false
 gem 'commonmarker'
 gem 'compass'
