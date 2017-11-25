@@ -105,6 +105,16 @@ section.has-dark-background {
   }
 
   span.red {
+    color: red;
+  }
+  span.brown {
     color: brown;
+  }
+  span.gray {
+    color: #b0b0b0;
+  }
+
+  span.line-through {
+    text-decoration: line-through;
   }
 }
