@@ -1,5 +1,0 @@
-{{ if eq .ReadingTime 1 }}
-  {{ .ReadingTime }} {{ (index $.Site.Data .Params.lang).minute }}
-{{ else }}
-  {{ .ReadingTime }} {{ (index $.Site.Data .Params.lang).minutes }}
-{{ end }}
