@@ -1,13 +1,20 @@
 #!/usr/bin/env ruby
 
-# https://github.com/Compass/compass/wiki/nanoc-integration
 require 'compass'
+require 'i18n'
+
+# https://github.com/Compass/compass/wiki/nanoc-integration
 Compass.add_project_configuration('compass/config.rb')
 
 preprocess do
+    I18n.load_path += Dir.glob('lib/locales/*.{rb,yml}')
+    I18n.available_locales = @config[:languages]
+    I18n.default_locale = @config[:default_language]
 end
 
 compile '/**/*' do
+    I18n.locale = item_rule.language.code unless item_rule.language.nil?
+
     # filters
     case item[:presentation]
     when 'revealjs'
@@ -36,11 +43,12 @@ compile '/**/*' do
         end
     end
 
+    rule = item_rule
     # layout
-    layout layout_path if layout_path
+    layout rule.layout_path if rule.layout_path
 
     # routes
-    write output_path if output_path
+    write rule.output_path if rule.output_path
 end
 
 layout '/**/*.erb', :erb

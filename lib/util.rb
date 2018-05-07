@@ -1,3 +1,5 @@
+gem 'i18n'
+
 class Util
     def self.file_basename(path, extensions)
         filename = File.basename(path)
@@ -7,8 +9,4 @@ class Util
             return basename if basename != filename
         end
     end
-end
-
-def production?
-    ENV['NANOC_ENV'] == 'production'
 end
