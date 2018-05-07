@@ -6,10 +6,10 @@ AllCops:
 Lint:
   Enabled: false
 
-Style/IndentationWidth:
+Layout/IndentationWidth:
   Width: 4
 
-Sytle/MultilineMethodCallBraceLayout:
+Layout/MultilineMethodCallBraceLayout:
   Enabled: false
 
 Style/PerlBackrefs:
