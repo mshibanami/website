@@ -7,7 +7,7 @@ require 'i18n'
 Compass.add_project_configuration('compass/config.rb')
 
 preprocess do
-    I18n.load_path += Dir.glob('lib/locales/*.{rb,yml}')
+    I18n.load_path += Dir.glob('i18n/*.{rb,yml}')
     I18n.available_locales = @config[:languages]
     I18n.default_locale = @config[:default_language]
 end

@@ -18,7 +18,7 @@
 guard 'nanoc' do
     watch('nanoc.yaml')
     watch('Rules')
-    watch(%r{^(content|layouts|lib)/.*$})
+    watch(%r{^(content|layouts|lib|i18n)/.*$})
 end
 
 # rubocop:disable BlockLength

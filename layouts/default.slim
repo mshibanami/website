@@ -1,8 +1,7 @@
 doctype html
 html lang="#{language.code}"
-  == render '/partials/head.slim'
-  link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet"
-  link href="#{@config[:base_url]}/assets/css/compiled/style.css" rel="stylesheet"
+  head
+    == render '/partials/head-contents.slim'
 
   body
     .grid-container
