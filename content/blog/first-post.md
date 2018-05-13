@@ -2,6 +2,7 @@
 title: テスト投稿
 created_at: 2015-10-26T00:00:00-09:00
 kind: article
+language: ja
 ---
 
 テスト投稿 - 本文。a

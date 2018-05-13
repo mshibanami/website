@@ -1,6 +1,7 @@
 ---
 title: iOS and MPEG-DASH
 created_at: 2015-11-01T00:00:00-09:00
+language: en
 ---
 
 The other day, I created a YouTube app for iOS.

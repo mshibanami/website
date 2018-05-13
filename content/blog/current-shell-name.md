@@ -2,6 +2,7 @@
 title: 実行中のシェル名の確認方法を考える
 created_at: 2016-02-02T00:00:00-09:00
 kind: article
+language: ja
 ---
 
 ## まえがき

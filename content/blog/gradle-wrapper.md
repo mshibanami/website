@@ -2,6 +2,7 @@
 title: Gradle Wrapperを経由せずに実行する
 created_at: 2016-02-07T00:00:00-09:00
 kind: article
+language: ja
 ---
 
 Gradleでは基本的にGradleラッパーを介してプログラムが実行される。

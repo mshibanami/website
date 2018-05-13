@@ -11,10 +11,12 @@ def item_rule
 end
 
 def output_path
-    item_rule.output_path
+    item_rule.output_path(language.code)
 end
 
 def language
+    return item_rule.language if item_rule.language
+    return Language.new(@item_rep.name.to_s) if @item_rep
     item_rule.language
 end
 
@@ -23,5 +25,10 @@ def layout_path
 end
 
 def t(key)
-    I18n.t(key, locale: language.code)
+    if language.nil?
+        code = language.code
+    elsif @item_rep.name != :default
+        code = @item_rep.name
+    end
+    I18n.t(key, locale: code)
 end

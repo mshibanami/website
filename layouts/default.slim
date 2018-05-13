@@ -8,8 +8,8 @@ html lang="#{language.code}"
       == render '/partials/header.slim'
       #main.grid-x
         - if output_path =~ %r{^/#{language.code}/blog/index.html}
-            .cell
-              == yield
+          .cell
+            == yield
 
         - if output_path =~ %r{^/#{language.code}/blog/[^/]*/index.html}
           .cell

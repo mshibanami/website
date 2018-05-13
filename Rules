@@ -12,45 +12,46 @@ preprocess do
     I18n.default_locale = @config[:default_language]
 end
 
-compile '/**/*' do
-    I18n.locale = item_rule.language.code unless item_rule.language.nil?
+for language in @config[:languages] + [:default]
+    compile '/**/*', rep: language do
+        I18n.locale = item_rule.language.code unless item_rule.language.nil?
 
-    # filters
-    case item[:presentation]
-    when 'revealjs'
-        case item[:extension]
-        when 'asciidoc', 'adoc'
-            filter :asciidoctor_converter, backend: :revealjs
-        when 'markdown', 'md'
-            # Don't use filter.
-            # The raw markdown text is embedded on the output HTML
+        # filters
+        case item[:presentation]
+        when 'revealjs'
+            case item[:extension]
+            when 'asciidoc', 'adoc'
+                filter :asciidoctor_converter, backend: :revealjs
+            when 'markdown', 'md'
+                # Don't use filter.
+                # The raw markdown text is embedded on the output HTML
+            end
+        when 'bespoke'
+            filter :asciidoctor_converter, backend: :bespoke
+        else
+            case item[:extension]
+            when 'asciidoc', 'adoc'
+                filter :asciidoctor
+            when 'erb'
+                filter :erb
+            when 'scss'
+                filter :sass, Compass.sass_engine_options
+            when 'slim'
+                filter :slim, pretty: true
+            when 'markdown', 'md'
+                filter :kramdown, input: 'GFM', syntax_highlighter: 'rouge'
+                # filter :commonmarker, [:DEFAULT]
+            end
         end
-    when 'bespoke'
-        filter :asciidoctor_converter, backend: :bespoke
-    else
-        case item[:extension]
-        when 'asciidoc', 'adoc'
-            filter :asciidoctor
-        when 'erb'
-            filter :erb
-        when 'scss'
-            filter :sass, Compass.sass_engine_options
-        when 'slim'
-            filter :slim, pretty: true
-        when 'markdown', 'md'
-            filter :kramdown, input: 'GFM', syntax_highlighter: 'rouge'
-            # filter :commonmarker, [:DEFAULT]
-        end
+
+        rule = item_rule
+        # layout
+        layout rule.layout_path if rule.layout_path
+        # routes
+        lang = @item_rep.name.to_s
+        write rule.output_path(lang) if rule.output_path(lang)
     end
-
-    rule = item_rule
-    # layout
-    layout rule.layout_path if rule.layout_path
-
-    # routes
-    write rule.output_path if rule.output_path
 end
-
 layout '/**/*.erb', :erb
 layout '/**/*.md', :kramdown, input: 'GFM', syntax_highlighter: 'rouge'
 # layout '/**/*.md', :commonmarker, [:DEFAULT]
