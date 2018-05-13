@@ -4,8 +4,6 @@ class ItemRule
     # Path of the layout file for specified item
     attr_reader :layout_path
 
-    # Path for output/
-
     # Language code
     # nil if the specified item is localized
     attr_reader :language
@@ -26,10 +24,9 @@ class ItemRule
             @layout_path = default_layout
             @output_path_base = '/index.html'
             @creates_localized_pages = true
-        when %r{^/(?<id>.*)/(?<lang>#{langs})\..*(#{doc_exts})$}
+        when %r{^/(?<id>.*)/index.(?<ext>#{doc_exts})$}
             @layout_path = default_layout
-            @output_path_base = "/#{$~[:id]}.html"
-            # @language = Language.new($~[:lang])
+            @output_path_base = "/#{$~[:id]}/index.html"
             @creates_localized_pages = true
         when %r{^/(?<dir>.*)/(?<name>.*)\.(?<ext>#{doc_exts})$}
             if $~[:dir] == 'slides'
@@ -49,7 +46,6 @@ class ItemRule
             end
             id = $~[:dir] + '/' + $~[:name]
             @output_path_base = "/#{id}/index.html"
-            # @language = Language.new($~[:lang])
             @creates_localized_pages = true
         when /\..*(scss|sass)$/
             name = Util.file_basename(
@@ -63,10 +59,6 @@ class ItemRule
         when %r{^/assets/}
             @output_path_base = identifier.to_s
             @creates_localized_pages = false
-        when %r{^/(?<id>.*).(?<ext>#{doc_exts})$}
-            @layout_path = default_layout
-            @output_path_base = "/#{$~[:id]}.html"
-            @creates_localized_pages = true
         end
     end
 
