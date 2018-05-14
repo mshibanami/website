@@ -1,6 +1,8 @@
-footer.grid-x
-  .cell.text-right
-    span
-      = "© #{@config[:copyright_year]} "
-      a href="https://twitter.com/#{@config[:twitter_id]}"
-        = @config[:author]
+footer
+  .grid-container
+    .grid-x.grid-margin-y
+      .cell.text-right
+        span.copylight
+          = "© #{@config[:copyright_year]}-#{Date.today.year} "
+          a href="https://twitter.com/#{@config[:twitter_id]}"
+            = @config[:author]

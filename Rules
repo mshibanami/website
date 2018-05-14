@@ -52,6 +52,7 @@ for language in @config[:languages] + [:default]
         write rule.output_path(lang) if rule.output_path(lang)
     end
 end
+
 layout '/**/*.erb', :erb
 layout '/**/*.md', :kramdown, input: 'GFM', syntax_highlighter: 'rouge'
 # layout '/**/*.md', :commonmarker, [:DEFAULT]

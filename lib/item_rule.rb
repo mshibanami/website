@@ -74,4 +74,13 @@ class ItemRule
             @output_path_base
         end
     end
+
+    def type
+        case @output_path_base
+        when %r{^/index\..*}
+            :home
+        when %r{^/(?<hello>.*?)/}
+            $~[:hello].to_sym
+        end
+    end
 end

@@ -32,3 +32,11 @@ def t(key)
     end
     I18n.t(key, locale: code)
 end
+
+def page_type
+    item_rule.type
+end
+
+def base_url
+    @config[:base_url]
+end

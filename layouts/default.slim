@@ -3,25 +3,20 @@ html lang="#{language.code}"
   head
     == render '/partials/head-contents.slim'
 
+    script src='/assets/jquery/jquery.js' defer
+    script src='/assets/foundation-sites/js/foundation.js' defer
+    script src='/assets/@fortawesome/fontawesome/index.js' defer
+    script src='/assets/@fortawesome/fontawesome-free-brands/index.js' defer
+
+    script src='/assets/js/app.js' defer
+
   body
-    .grid-container
-      == render '/partials/header.slim'
-      #main.grid-x
-        - if output_path =~ %r{^/#{language.code}/blog/index.html}
-          .cell
-            == yield
+    == render '/partials/header.slim'
+    #main.grid-x
+    .cell
+        == yield
 
-        - if output_path =~ %r{^/#{language.code}/blog/[^/]*/index.html}
-          .cell
-            == yield
+    == render '/partials/footer.slim'
 
-        - if output_path =~ %r{^/#{language.code}/index.html}
-          .cell
-            == yield
-
-      == render '/partials/footer.slim'
-
-    script src="https://code.jquery.com/jquery-2.2.4.min.js"
-    script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"
     == render '/partials/google-analytics.slim'
     == render '/partials/highlightjs.slim'
