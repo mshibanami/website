@@ -1,0 +1,21 @@
+- articles = sorted_items_of('article')
+- if @numberOfPosts != nil
+    - articles = articles.take(@numberOfPosts)
+
+.blog-posts-summaries.grid-y.grid-margin-y
+    - for a in articles
+        - created_at = a[:created_at]
+        - rule = a.to_item_rule(@config)
+        - path = rule.output_path(language.code)
+        - path = path.no_indexed unless path.nil?
+        - title = a[:title]
+        .blog-post-summary.cell
+            .grid-y
+                .cell
+                    h3
+                        a href="#{path}"
+                            span #{title}
+                .cell
+                    span #{I18n.l created_at, format: :short}
+                .cell
+                    == get_post_start(a)

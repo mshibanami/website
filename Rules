@@ -43,13 +43,15 @@ for language in @config[:languages] + [:default]
                 # filter :commonmarker, [:DEFAULT]
             end
         end
-
         rule = item_rule
+
         # layout
-        layout rule.layout_path if rule.layout_path
+        layout(rule.layout_path) unless rule.layout_path.nil?
+        
         # routes
         lang = @item_rep.name.to_s
-        write rule.output_path(lang) if rule.output_path(lang)
+        output_path = rule.output_path(lang)
+        write(output_path) unless output_path.nil?
     end
 end
 

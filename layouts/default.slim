@@ -1,22 +1,19 @@
+- lang = language.code
 doctype html
-html lang="#{language.code}"
+html lang="#{lang}"
   head
     == render '/partials/head-contents.slim'
 
-    script src='/assets/jquery/jquery.js' defer
-    script src='/assets/foundation-sites/js/foundation.js' defer
-    script src='/assets/@fortawesome/fontawesome/index.js' defer
-    script src='/assets/@fortawesome/fontawesome-free-brands/index.js' defer
-
-    script src='/assets/js/app.js' defer
-
   body
     == render '/partials/header.slim'
-    #main.grid-x
-    .cell
-        == yield
+
+    - if output_path =~ %r{^/#{lang}/blog/[^/]*/index.html}
+        == render '/partials/blog-post.slim' do
+            == yield
+    - else
+        .grid-container
+            .grid-x.grid-margin-y
+                .cell
+                    == yield
 
     == render '/partials/footer.slim'
-
-    == render '/partials/google-analytics.slim'
-    == render '/partials/highlightjs.slim'

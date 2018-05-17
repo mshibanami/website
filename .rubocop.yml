@@ -1,22 +1,28 @@
 AllCops:
-  Exclude:
-    - old/*
-  UseCache: false
+    Exclude:
+        - old/*
+    UseCache: false
 
 Lint:
-  Enabled: false
+    Enabled: false
 
 Layout/IndentationWidth:
-  Width: 4
+    Width: 4
 
 Layout/MultilineMethodCallBraceLayout:
-  Enabled: false
+    Enabled: false
 
 Style/PerlBackrefs:
-  AutoCorrect: false
+    AutoCorrect: false
 
 Style/SpecialGlobalVars:
-  Enabled: false
+    Enabled: false
 
 Style/WordArray:
-  Enabled: false
+    Enabled: false
+
+Style/MethodDefParentheses:
+    Enabled: true
+
+Style/For:
+    Enabled: false

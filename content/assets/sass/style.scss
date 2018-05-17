@@ -10,7 +10,7 @@ h6 {
 }
 
 .site-name {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0;
     color: #666;
 }
@@ -24,11 +24,8 @@ footer {
     background-color: #f4f4f6
 }
 
-.copylight {
+.copyright {
     color: #aaa;
-    a {
-        color: #50758d;
-    }
 }
 
 .sns-icons {
@@ -40,6 +37,11 @@ footer {
         display: inline-block;
         margin-left: 14px;
     }
+}
+
+.blog-post-summary {
+    border: 1px solid #ddd;
+    padding: 16px;
 }
 
 // https://foundation.zurb.com/building-blocks/blocks/hover-underline-menu.html
@@ -55,7 +57,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
             a {
                 color: #999;
                 font-size: 0.9rem;
-                padding: 1.0rem 1.0rem;
+                padding: 16px 16px;
                 &.underline-from-center {
                     position: relative;
                     &::after {

@@ -1,3 +1,8 @@
 en:
     blog: "Blog"
     slides: "Slides"
+    time:
+        formats:
+            default: "%Y/%m/%d %H:%M:%S"
+            long: "%Y/%m/%d/(%a) %H:%M:%S %z"
+            short: "%Y/%m/%d %H:%M"

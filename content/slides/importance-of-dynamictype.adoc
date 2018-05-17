@@ -1,7 +1,8 @@
 ---
 title: DynamicTypeについて
-created_at: 2017-09-12
+created_at: 2017-09-12T09:00:00-09:00
 presentation: revealjs
+kind: slide
 ---
 
 [.center]

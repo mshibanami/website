@@ -17,3 +17,12 @@ link href="#{@config[:base_url]}/favicon.png" rel="icon" type="image/png"
 link href="#{@config[:base_url]}/apple-touch-icon.png" rel="apple-touch-icon"
 link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet"
 link href="#{@config[:base_url]}/assets/css/compiled/style.css" rel="stylesheet"
+
+script src='/assets/jquery/jquery.js' defer=""
+script src='/assets/foundation-sites/js/foundation.js' defer=""
+script src='/assets/@fortawesome/fontawesome/index.js' defer=""
+script src='/assets/@fortawesome/fontawesome-free-brands/index.js' defer=""
+script src='/assets/js/app.js' defer=""
+
+/ == render '/partials/google-analytics.erb'
+== render '/partials/highlightjs.slim'

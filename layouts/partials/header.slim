@@ -1,34 +1,41 @@
+- lang = language.code
 header
-  .grid-container
-    .grid-x.align-middle
-      .cell.text-left.auto
-        a href="#{base_url}"
-          h1.site-name mshibanami
-
-      .cell.text-right.small-5
+    .grid-container
         .grid-x.align-middle
-          .cell.align-right
-            ul.sns-icons
-              li
-                a href="https://twitter.com/mshibanami" target="_blank" title="Twitter"
-                  i.fab.fa-twitter
-              li
-                a href="https://github.com/mshibanami" target="_blank" title="GitHub"
-                  i.fab.fa-github
-              li
-                a href="https://www.linkedin.com/in/mshibanami" target="_blank" title="GitHub"
-                  i.fab.fa-linkedin
-          .cell.text-right
-            span
-              - @config[:languages].each do | code |
-                - if code != language.code
-                    a href=("/#{code}/") target="_self" #{Language.new(code).original_name}
+            / Title
+            .cell.text-left.auto
+                a href="#{base_url}/#{lang}/"
+                    h1.site-name mshibanami
 
+            .cell.text-right.small-5
+                .grid-x.align-middle
+                    / Social Icons
+                    .cell.align-right
+                        ul.sns-icons
+                            li
+                                a href="https://twitter.com/mshibanami" target="_blank" title="Twitter"
+                                    i.fab.fa-twitter
+                            li
+                                a href="https://github.com/mshibanami" target="_blank" title="GitHub"
+                                    i.fab.fa-github
+                            li
+                                a href="https://www.linkedin.com/in/mshibanami" target="_blank" title="GitHub"
+                                    i.fab.fa-linkedin
+                    / Languages
+                    .cell.text-right
+                        span
+                            - rule = @item.to_item_rule(@config)
+                            - @config[:languages].each do | code |
+                                - if code != lang
+                                    - path = "/" + code + rule.output_path_base.no_indexed
+                                    a href=("#{path}") target="_self" #{Language.new(code).original_name}
+
+/ Menu
 nav.hover-underline-menu data-menu-underline-from-center=""
-  ul.menu.align-center
-    li class="#{'is-active' if page_type == :home }"
-      a href="/#{language.code}/" Home
-    li class="#{'is-active' if page_type == :blog }"
-      a href="/#{language.code}/blog" #{t("blog")}
-    li class="#{'is-active' if page_type == :slides }"
-      a href="/#{language.code}/slides" #{t("slides")}
+    ul.menu.align-center
+        li class="#{'is-active' if page_type == :home }"
+            a href="/#{lang}/" Home
+        li class="#{'is-active' if page_type == :blog }"
+            a href="/#{lang}/blog" #{t("blog")}
+        li class="#{'is-active' if page_type == :slides }"
+            a href="/#{lang}/slides" #{t("slides")}

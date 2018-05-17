@@ -10,6 +10,8 @@ class ItemRule
 
     attr_reader :creates_localized_pages
 
+    attr_reader :output_path_base
+
     def initialize(identifier, presentation, languages, document_extensions)
         langs = languages.join('|')
         doc_exts = document_extensions.join('|')
@@ -82,5 +84,11 @@ class ItemRule
         when %r{^/(?<hello>.*?)/}
             $~[:hello].to_sym
         end
+    end
+end
+
+class String
+    def no_indexed
+        chomp('index.html')
     end
 end

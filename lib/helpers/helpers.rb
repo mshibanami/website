@@ -40,3 +40,38 @@ end
 def base_url
     @config[:base_url]
 end
+
+def items_of(kind)
+    blk = -> { @items.select { |item| item[:kind] == kind } }
+    if @items.frozen?
+        @article_items ||= blk.call
+    else
+        blk.call
+    end
+end
+
+def sorted_items_of(kind)
+    blk = lambda {
+        items_of(kind).sort_by do |a|
+            attribute_to_time(a[:created_at])
+        end .reverse
+    }
+
+    if @items.frozen?
+        @sorted_article_items ||= blk.call
+    else
+        blk.call
+    end
+end
+
+module Nanoc
+    module DocumentViewMixin
+        def to_item_rule(config)
+            ItemRule.new(
+                identifier,
+                self[:presentation],
+                config[:languages],
+                config[:document_extensions])
+        end
+    end
+end
