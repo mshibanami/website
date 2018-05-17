@@ -93,9 +93,13 @@ author: mshibanami
 copyright_year: 2015
 google_analytics_id: UA-46019833-3
 title: mshibanami.github.io
-twitter_id: mshibanami
 keywords: []
 description: 
+
+# Social Accounts
+twitter_id: mshibanami
+github_id: mshibanami
+linkedin_id: mshibanami
 
 languages: ['en', 'ja']
 default_language: en

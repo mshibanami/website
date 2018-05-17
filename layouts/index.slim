@@ -1,0 +1,19 @@
+/ index.html just for redirect to /<user's langugage>/
+doctype html
+html
+    head
+        title Redirecting...
+        noscript
+            meta content=("0; url=#{@config[:default_language]}/") http-equiv="refresh" /
+        javascript:
+            var lang = (window.navigator.userLanguage || window.navigator.language)
+                .replace(/[_-].*/, '') // Country translation not supported
+                .toLowerCase();
+
+            if (lang in #{{@config[:languages]}}) {
+                location.href = '/' + lang + '/';
+            }
+            else {
+                location.href = '#{@config[:default_language]}/';
+            }
+    body

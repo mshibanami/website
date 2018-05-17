@@ -64,6 +64,12 @@ def sorted_items_of(kind)
     end
 end
 
+def created_at_list_of(kind)
+    sorted_items_of(kind)
+        .map { |i| i[:created_at].strftime('%Y-%m') }
+        .uniq
+end
+
 module Nanoc
     module DocumentViewMixin
         def to_item_rule(config)

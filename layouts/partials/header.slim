@@ -13,13 +13,13 @@ header
                     .cell.align-right
                         ul.sns-icons
                             li
-                                a href="https://twitter.com/mshibanami" target="_blank" title="Twitter"
+                                a href="https://twitter.com/#{@config[:twitter_id]}" target="_blank" title="Twitter"
                                     i.fab.fa-twitter
                             li
-                                a href="https://github.com/mshibanami" target="_blank" title="GitHub"
+                                a href="https://github.com/#{@config[:github]}" target="_blank" title="GitHub"
                                     i.fab.fa-github
                             li
-                                a href="https://www.linkedin.com/in/mshibanami" target="_blank" title="GitHub"
+                                a href="https://www.linkedin.com/in/#{@config[:linkedin_id]}" target="_blank" title="GitHub"
                                     i.fab.fa-linkedin
                     / Languages
                     .cell.text-right
@@ -27,7 +27,8 @@ header
                             - rule = @item.to_item_rule(@config)
                             - @config[:languages].each do | code |
                                 - if code != lang
-                                    - path = "/" + code + rule.output_path_base.no_indexed
+                                    - path = "/" + code + rule.output_path_base
+                                    - path = path.no_indexed unless path.nil?
                                     a href=("#{path}") target="_self" #{Language.new(code).original_name}
 
 / Menu

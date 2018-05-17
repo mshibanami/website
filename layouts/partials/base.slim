@@ -1,0 +1,12 @@
+- lang = language.code
+doctype html
+html lang="#{lang}"
+  head
+    == render '/partials/head-contents.slim'
+
+  body
+    == render '/partials/header.slim'
+
+    == yield
+
+    == render '/partials/footer.slim'

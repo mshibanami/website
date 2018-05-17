@@ -15,16 +15,34 @@ class ItemRule
     def initialize(identifier, presentation, languages, document_extensions)
         langs = languages.join('|')
         doc_exts = document_extensions.join('|')
-        default_layout = '/default.*'
+        default_layout = "/default.*"
 
         case identifier
         when %r{^/index\.}
             @layout_path = '/content-only.*'
             @output_path_base = '/index.html'
             @creates_localized_pages = false
-        when %r{^/index-localized\.}
-            @layout_path = default_layout
+        when "#{PageID::HOME}"
+            @layout_path = '/home.*'
             @output_path_base = '/index.html'
+            @creates_localized_pages = true
+        when "#{PageID::BLOG}"
+            @layout_path = '/blog-pages.*'
+            @output_path_base = '/blog/index.html'
+            @creates_localized_pages = true
+        when "#{PageID::SLIDES}"
+            @layout_path = '/slides-pages.*'
+            @output_path_base = '/slides/index.html'
+            @creates_localized_pages = true
+        when %r{^/(?<dir>.*)/page-(?<created_at>\d{4}-\d{2})$}
+            case $~[:dir]
+            when 'blog'
+                @layout_path = '/blog-pages.*'
+            when 'slides'
+                @layout_path = '/slides-pages.*'
+            end
+
+            @output_path_base = "/#{$~[:dir]}/#{$~[:created_at]}/index.html"
             @creates_localized_pages = true
         when %r{^/(?<id>.*)/index.(?<ext>#{doc_exts})$}
             @layout_path = default_layout

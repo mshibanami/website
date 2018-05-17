@@ -1,19 +1,2 @@
-- lang = language.code
-doctype html
-html lang="#{lang}"
-  head
-    == render '/partials/head-contents.slim'
-
-  body
-    == render '/partials/header.slim'
-
-    - if output_path =~ %r{^/#{lang}/blog/[^/]*/index.html}
-        == render '/partials/blog-post.slim' do
-            == yield
-    - else
-        .grid-container
-            .grid-x.grid-margin-y
-                .cell
-                    == yield
-
-    == render '/partials/footer.slim'
+h1 "🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔"
+== yield

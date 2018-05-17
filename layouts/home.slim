@@ -1,0 +1,9 @@
+== render '/partials/base.slim' do
+    .grid-container
+        h2
+            a href="./blog/" #{t("blog")}
+        == render '/partials/items-summaries.slim', { kind: 'article', numberOfPosts: 3 }
+        
+        h2
+            a href="./slides/" #{t("slides")}
+        == render '/partials/slides-list.slim'

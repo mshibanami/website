@@ -1,0 +1,6 @@
+== render '/partials/base.slim' do
+    .blog-post.grid-container
+        .grid-x.grid-margin-y.grid-margin-x
+            .cell
+                h2 #{@item[:title]}
+                == yield

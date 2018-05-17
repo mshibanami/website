@@ -10,6 +10,20 @@ preprocess do
     I18n.load_path += Dir.glob('i18n/*.{rb,yml}')
     I18n.available_locales = @config[:languages]
     I18n.default_locale = @config[:default_language]
+
+    def generate_list_pages(kind, identifier_prefix)
+        dates = created_at_list_of(kind)
+        dates.each do |created_at|
+            identifier = "#{identifier_prefix}#{created_at}"
+            @items.create('', {}, identifier)
+        end
+    end
+    generate_list_pages('article', '/blog/page-')
+    generate_list_pages('slide', '/slides/page-')
+
+    @items.create('', {}, PageID::HOME)
+    @items.create('', {}, PageID::BLOG)
+    @items.create('', {}, PageID::SLIDES)
 end
 
 for language in @config[:languages] + [:default]
@@ -47,7 +61,7 @@ for language in @config[:languages] + [:default]
 
         # layout
         layout(rule.layout_path) unless rule.layout_path.nil?
-        
+
         # routes
         lang = @item_rep.name.to_s
         output_path = rule.output_path(lang)

@@ -9,6 +9,10 @@ h6 {
     font-weight: 400;
 }
 
+h2 {
+    margin-top: 40px;
+}
+
 .site-name {
     font-size: 1.5rem;
     margin: 0;
@@ -39,9 +43,18 @@ footer {
     }
 }
 
-.blog-post-summary {
+.cards {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.card {
     border: 1px solid #ddd;
     padding: 16px;
+}
+
+.is-active {
+    font-weight: bold;
 }
 
 // https://foundation.zurb.com/building-blocks/blocks/hover-underline-menu.html
