@@ -10,4 +10,4 @@ node_modules
 tmp/
 
 /coverage/
-/vendor/
+/vendor/bundle/
