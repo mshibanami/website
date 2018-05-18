@@ -6,4 +6,4 @@
         
         h2
             a href="./slides/" #{t("slides")}
-        == render '/partials/slides-list.slim'
+        == render '/partials/items-summaries.slim', { kind: 'slide', numberOfPosts: 3 }

@@ -12,7 +12,7 @@ kind: slide
 [.noboder]
 image::/assets/img/sick_rougan_smartphone.png[height=800]
 
-アプリ部 中澤
+@mshibanami
 
 [id=slide2]
 == Dynamic Type とは？

@@ -49,7 +49,8 @@ class ItemRule
             @output_path_base = "/#{$~[:id]}/index.html"
             @creates_localized_pages = true
         when %r{^/(?<dir>.*)/(?<name>.*)\.(?<ext>#{doc_exts})$}
-            if $~[:dir] == 'slides'
+            case $~[:dir]
+            when 'slides'
                 case DocType.value($~[:ext])
                 when DocType::ASCIIDOC
                     case presentation
@@ -61,6 +62,8 @@ class ItemRule
                 when DocType::MARKDOWN
                     @layout_path = '/slide-markdown-revealjs.*'
                 end
+            when 'blog'
+                @layout_path = '/blog-post.*'
             else
                 @layout_path = default_layout
             end
