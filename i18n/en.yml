@@ -1,8 +1,17 @@
 en:
     blog: "Blog"
+    home: "Home"
     slides: "Slides"
-    time:
+
+    defaults: &defaults
+        month_names:
+            [~, January, February, March, April, May, June, July, August, September, October, November, December]
+        abbr_month_names:
+            [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
         formats:
-            default: "%Y/%m/%d %H:%M:%S"
-            long: "%Y/%m/%d/(%a) %H:%M:%S %z"
-            short: "%Y/%m/%d %H:%M"
+            default: "%d. %B %Y"
+            short: "%d %b, %Y"
+    date:
+        <<: *defaults
+    time:
+        <<: *defaults

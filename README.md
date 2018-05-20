@@ -33,11 +33,11 @@ nanoc check --all
 
 ### edit articles with live preview
 
-1. Install [LiveReload](http://livereload.com/)
+1. Install [LiveReload](http://livereload.com/) to your browser
 2. Run this command:
     ```bash
     bundle install
-    bundle exec nanoc live
+    bundle exec nanoc live # add --host=0.0,0.0 if you want to preview the site from another devices on the LAN
     ```
 3. Access <http://localhost:3000/>
 4. Enable LiveReload of your browser

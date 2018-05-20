@@ -1,6 +1,9 @@
 == render '/partials/base.slim' do
-    .blog-post.grid-container
+    .grid-container
         .grid-x.grid-margin-y.grid-margin-x
             .cell
-                h2.post-title #{@item[:title]}
-                == yield
+                article
+                    header.blog-post-header.text-center
+                        h1.blog-post-title #{@item[:title]}
+                        span.blog-post-info #{l(@item[:created_at], format: :short)}
+                    == yield

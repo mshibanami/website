@@ -1,11 +1,11 @@
 - lang = language.code
-header
+header.header
     .grid-container
         .grid-x.align-middle
             / Title
             .cell.text-left.auto
-                a href="#{base_url}/#{lang}/"
-                    h1.site-name mshibanami
+                a href="/#{lang}/"
+                    h1.site-name #{@config[:title]}
 
             .cell.text-right.small-5
                 .grid-x.align-middle
@@ -35,7 +35,7 @@ header
 nav.hover-underline-menu data-menu-underline-from-center=""
     ul.menu.align-center
         li class="#{'is-active' if page_type == :home }"
-            a href="/#{lang}/" Home
+            a href="/#{lang}/" #{t('home')}
         li class="#{'is-active' if page_type == :blog }"
             a href="/#{lang}/blog" #{t("blog")}
         li class="#{'is-active' if page_type == :slides }"

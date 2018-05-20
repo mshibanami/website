@@ -17,7 +17,6 @@ end
 def language
     return item_rule.language if item_rule.language
     return Language.new(@item_rep.name.to_s) if @item_rep
-    item_rule.language
 end
 
 def layout_path
@@ -25,20 +24,18 @@ def layout_path
 end
 
 def t(key)
-    if language.nil?
-        code = language.code
-    elsif @item_rep.name != :default
-        code = @item_rep.name
-    end
+    code = @item_rep.name if @item_rep.name != :default
     I18n.t(key, locale: code)
+end
+
+def l(key, options = {})
+    code = @item_rep.name if @item_rep.name != :default
+    options = options.merge(locale: code)
+    I18n.l(key, options)
 end
 
 def page_type
     item_rule.type
-end
-
-def base_url
-    @config[:base_url]
 end
 
 def items_of(kind)

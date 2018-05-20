@@ -18,23 +18,23 @@ class ItemRule
         default_layout = "/default.*"
 
         case identifier
-        when %r{^/index\.}
-            @layout_path = '/content-only.*'
+        when PageID::INDEX
+            @layout_path = '/index.*'
             @output_path_base = '/index.html'
             @creates_localized_pages = false
-        when "#{PageID::HOME}"
+        when PageID::HOME
             @layout_path = '/home.*'
             @output_path_base = '/index.html'
             @creates_localized_pages = true
-        when "#{PageID::BLOG}"
+        when PageID::BLOG
             @layout_path = '/blog-pages.*'
             @output_path_base = '/blog/index.html'
             @creates_localized_pages = true
-        when "#{PageID::SLIDES}"
+        when PageID::SLIDES
             @layout_path = '/slides-pages.*'
             @output_path_base = '/slides/index.html'
             @creates_localized_pages = true
-        when %r{^/(?<dir>.*)/page-(?<created_at>\d{4}-\d{2})$}
+        when %r{^/(?<dir>.*)/(?<page_number>\d)$}
             case $~[:dir]
             when 'blog'
                 @layout_path = '/blog-pages.*'
@@ -42,7 +42,7 @@ class ItemRule
                 @layout_path = '/slides-pages.*'
             end
 
-            @output_path_base = "/#{$~[:dir]}/#{$~[:created_at]}/index.html"
+            @output_path_base = "/#{$~[:dir]}/#{$~[:page_number]}/index.html"
             @creates_localized_pages = true
         when %r{^/(?<id>.*)/index.(?<ext>#{doc_exts})$}
             @layout_path = default_layout

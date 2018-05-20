@@ -89,10 +89,10 @@ checks:
     #   exclude_files: ['blog/page']
     exclude_files: []
 
-author: mshibanami
+author: Manabu Nakazawa
 copyright_year: 2015
 google_analytics_id: UA-46019833-3
-title: mshibanami.github.io
+title: Manabu Nakazawa
 keywords: []
 description: 
 

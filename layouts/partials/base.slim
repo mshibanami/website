@@ -1,12 +1,12 @@
 - lang = language.code
 doctype html
 html lang="#{lang}"
-  head
-    == render '/partials/head-contents.slim'
+    head
+        == render '/partials/head-contents.slim'
 
-  body
-    == render '/partials/header.slim'
+    body
+        == render '/partials/header.slim'
 
-    == yield
+        == yield
 
-    == render '/partials/footer.slim'
+        == render '/partials/footer.slim'
