@@ -11,16 +11,17 @@ preprocess do
     I18n.available_locales = @config[:languages]
     I18n.default_locale = @config[:default_language]
 
-    def generate_list_pages(kind, identifier_prefix)
-        items = sorted_items_of(kind)
-        items.each_with_index do |item, index|
+    def generate_list_pages(kind, identifier_prefix, items_count_of_page)
+        items_list = sorted_items_of(kind)
+            .each_slice(items_count_of_page).to_a
+        items_list.each_with_index do |items, index|
             next if index.zero?
             identifier = "#{identifier_prefix}#{index}"
             @items.create('', {}, identifier)
         end
     end
-    generate_list_pages('article', '/blog/')
-    generate_list_pages('slide', '/slides/')
+    generate_list_pages('article', '/blog/', 3)
+    generate_list_pages('slide', '/slides/', 3)
 
     @items.create('', {}, PageID::INDEX)
     @items.create('', {}, PageID::HOME)

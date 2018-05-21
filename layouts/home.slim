@@ -2,8 +2,8 @@
     .grid-container
         h2
             a href="./blog/" #{t("blog")}
-        == render '/partials/items-summaries.slim', { kind: 'article', numberOfPosts: 3 }
+        == render '/partials/blog-summaries.slim'
         
         h2
             a href="./slides/" #{t("slides")}
-        == render '/partials/items-summaries.slim', { kind: 'slide', numberOfPosts: 3 }
+        == render '/partials/items-summaries.slim', kind: 'slide'

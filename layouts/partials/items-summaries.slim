@@ -1,6 +1,9 @@
+- number_of_posts = 3 unless @number_of_posts.nil?
+- index = 0 unless @index.nil?
 - articles = sorted_items_of(@kind)
-- if @numberOfPosts != nil
-    - articles = articles.take(@numberOfPosts)
+- if @number_of_posts != nil
+    - articles = articles.each_slice(@number_of_posts).to_a[@index]
+    
 .grid-container
     .cards.grid-y
         - for a in articles

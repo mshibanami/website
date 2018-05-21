@@ -67,6 +67,10 @@ def created_at_list_of(kind)
         .uniq
 end
 
+def items_of_blog_pages(kind)
+    blog_post
+end
+
 module Nanoc
     module DocumentViewMixin
         def to_item_rule(config)

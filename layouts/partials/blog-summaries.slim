@@ -1,0 +1,4 @@
+- index = 0
+- matches = @item.identifier.to_s.match(%r{/blog/(?<index>\d)})
+- index = matches[:index].to_i unless matches.nil?
+== render '/partials/items-summaries.slim', kind: 'article', number_of_posts: 3, index: index
