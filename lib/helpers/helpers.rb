@@ -1,3 +1,10 @@
+# Default
+use_helper Nanoc::Helpers::LinkTo
+use_helper Nanoc::Helpers::Filtering
+use_helper Nanoc::Helpers::XMLSitemap
+use_helper Nanoc::Helpers::Rendering
+use_helper Nanoc::Helpers::Blogging
+
 def production?
     ENV['NANOC_ENV'] == 'production'
 end
@@ -59,16 +66,6 @@ def sorted_items_of(kind)
     else
         blk.call
     end
-end
-
-def created_at_list_of(kind)
-    sorted_items_of(kind)
-        .map { |i| i[:created_at].strftime('%Y-%m') }
-        .uniq
-end
-
-def items_of_blog_pages(kind)
-    blog_post
 end
 
 module Nanoc
