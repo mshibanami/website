@@ -10,7 +10,9 @@ preprocess do
     I18n.load_path += Dir.glob('i18n/*.{rb,yml}')
     I18n.available_locales = @config[:languages]
     I18n.default_locale = @config[:default_language]
-
+    @items.each do |item|
+        item_rule = item.to_item_rule(@config)
+    end
     def generate_list_pages(kind, identifier_prefix, items_count_of_page)
         items_list = sorted_items_of(kind)
             .each_slice(items_count_of_page).to_a
