@@ -130,9 +130,7 @@ Style/AsciiComments:
     Enabled: false
 
 Style/BlockDelimiters:
-    AutoCorrect: false
-    Exclude:
-        - "spec/**/*_spec.rb"
+    Enabled: false
 
 Style/BracesAroundHashParameters:
     Enabled: false
@@ -193,6 +191,9 @@ Style/MethodCalledOnDoEndBlock:
 
 Style/MethodDefParentheses:
     Enabled: true
+
+Style/MethodCallWithoutArgsParentheses:
+    Enabled: false
 
 Style/MixinUsage:
     Exclude:

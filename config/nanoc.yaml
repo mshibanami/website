@@ -90,7 +90,6 @@ checks:
     exclude_files: []
 
 author: Manabu Nakazawa
-copyright_year: 2015
 google_analytics_id: UA-46019833-3
 title: Manabu Nakazawa
 keywords: []
@@ -101,7 +100,9 @@ twitter_id: mshibanami
 github_id: mshibanami
 linkedin_id: mshibanami
 
-languages: ['en', 'ja']
+disqus_id: mshibanami
+
+available_languages: ['en', 'ja']
 default_language: en
 
 document_extensions: ['erb', 'slim', 'markdown', 'md', 'adoc', 'asciidoc']

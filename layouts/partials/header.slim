@@ -1,42 +1,28 @@
 - lang = language.code
 header.header
     .grid-container
-        .grid-x.align-middle
+        .grid-x.grid-margin-x.align-middle
             / Title
-            .cell.text-left.auto
+            .cell.medium-auto.medium-align-left
                 a href="/#{lang}/"
-                    h1.site-name #{@config[:title]}
-
-            .cell.text-right.small-5
-                .grid-x.align-middle
-                    / Social Icons
-                    .cell.align-right
-                        ul.sns-icons
-                            li
-                                a href="https://twitter.com/#{@config[:twitter_id]}" target="_blank" title="Twitter"
-                                    i.fab.fa-twitter
-                            li
-                                a href="https://github.com/#{@config[:github]}" target="_blank" title="GitHub"
-                                    i.fab.fa-github
-                            li
-                                a href="https://www.linkedin.com/in/#{@config[:linkedin_id]}" target="_blank" title="GitHub"
-                                    i.fab.fa-linkedin
-                    / Languages
-                    .cell.text-right
-                        span
-                            - rule = @item.to_item_rule(@config)
-                            - @config[:languages].each do | code |
-                                - if code != lang
-                                    - path = "/" + code + rule.output_path_base
-                                    - path = path.no_indexed unless path.nil?
-                                    a href=("#{path}") target="_self" #{Language.new(code).original_name}
-
-/ Menu
-nav.hover-underline-menu data-menu-underline-from-center=""
-    ul.menu.align-center
-        li class="#{'is-active' if page_type == :home }"
-            a href="/#{lang}/" #{t('home')}
-        li class="#{'is-active' if page_type == :blog }"
-            a href="/#{lang}/blog" #{t("blog")}
-        li class="#{'is-active' if page_type == :slides }"
-            a href="/#{lang}/slides" #{t("slides")}
+                    h1 #{@config[:title]}
+            .cell.medium-auto
+                nav.hover-underline-menu data-menu-underline-from-center=""
+                    ul.menu.medium-align-right
+                        li class="#{'is-active' if page_type == :home }"
+                            a href="/#{lang}/" #{t('home')}
+                        li class="#{'is-active' if page_type == :blog }"
+                            a href="/#{lang}/blog" #{t("blog")}
+                        li class="#{'is-active' if page_type == :slides }"
+                            a href="/#{lang}/slides" #{t("slides")}
+.grid-container
+    .grid-x.grid-padding-y
+        / Languages
+        .cell.text-right
+            span
+                - rule = @item.to_item_rule(@item_rep, @config)
+                - @config[:available_languages].each do | code |
+                    - if code != lang
+                        - path = "/" + code + rule.output_path_base
+                        - path = path.no_indexed unless path.nil?
+                        a href=("#{path}") target="_self" #{Language.new(code).original_name}

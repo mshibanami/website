@@ -1,0 +1,8 @@
+- page_number = 1
+- matches = @item.identifier.to_s.match(%r{/slides/(?<page_number>\d)})
+- page_number = matches[:page_number].to_i unless matches.nil?
+== render '/partials/base.slim' do
+    .grid-container
+        section.summaries
+            h2.text-center #{t("slides")}
+            == render '/partials/items-summaries.slim', kind: 'slide', page_number: page_number

@@ -6,24 +6,19 @@ use_helper Nanoc::Helpers::Rendering
 use_helper Nanoc::Helpers::Blogging
 
 def production?
-    ENV['NANOC_ENV'] == 'production'
+    ENV["NANOC_ENV"] == "production"
 end
 
 def item_rule
     ItemRule.new(
         @item.identifier,
         @item[:presentation],
-        @config[:languages],
-        @config[:document_extensions])
-end
-
-def output_path
-    item_rule.output_path(language.code)
+        language(),
+        @config)
 end
 
 def language
-    return item_rule.language if item_rule.language
-    return Language.new(@item_rep.name.to_s) if @item_rep
+    Language.new(@item_rep.name.to_s) if @item_rep
 end
 
 def layout_path
@@ -46,7 +41,7 @@ def page_type
 end
 
 def items_of(kind)
-    blk = -> { @items.select { |item| item[:kind] == kind } }
+    blk = -> { @items.select {|item| item[:kind] == kind } }
     if @items.frozen?
         @article_items ||= blk.call
     else
@@ -55,10 +50,10 @@ def items_of(kind)
 end
 
 def sorted_items_of(kind)
-    blk = lambda {
-        items_of(kind).sort_by do |a|
+    blk = -> {
+        items_of(kind).sort_by {|a|
             attribute_to_time(a[:created_at])
-        end .reverse
+        }.reverse
     }
 
     if @items.frozen?
@@ -68,14 +63,24 @@ def sorted_items_of(kind)
     end
 end
 
+def copyright_year
+    Time.now().year
+end
+
 module Nanoc
     module DocumentViewMixin
-        def to_item_rule(config)
+        def to_item_rule(item_rep, config)
             ItemRule.new(
                 identifier,
                 self[:presentation],
-                config[:languages],
-                config[:document_extensions])
+                item_rep.to_language,
+                config)
+        end
+    end
+
+    class CompilationItemRepView
+        def to_language
+            Language.new(@item_rep.name.to_s) if @item_rep
         end
     end
 end
