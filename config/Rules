@@ -1,0 +1,84 @@
+#!/usr/bin/env ruby
+
+require 'compass'
+require 'i18n'
+
+# https://github.com/Compass/compass/wiki/nanoc-integration
+Compass.add_project_configuration('compass/config.rb')
+
+preprocess do
+    I18n.load_path += Dir.glob('i18n/*.{rb,yml}')
+    I18n.available_locales = @config[:languages]
+    I18n.default_locale = @config[:default_language]
+    I18n.backend.reload!
+    p I18n.l(Time.now)
+
+    @items.each do |item|
+        item_rule = item.to_item_rule(@config)
+    end
+    def generate_list_pages(kind, identifier_prefix, items_count_of_page)
+        items_list = sorted_items_of(kind)
+            .each_slice(items_count_of_page).to_a
+        items_list.each_with_index do |items, index|
+            next if index.zero?
+            identifier = "#{identifier_prefix}#{index}"
+            @items.create('', {}, identifier)
+        end
+    end
+
+    generate_list_pages('article', '/blog/', 3)
+    generate_list_pages('slide', '/slides/', 3)
+
+    @items.create('', {}, PageID::INDEX)
+    @items.create('', {}, PageID::HOME)
+    @items.create('', {}, PageID::BLOG)
+    @items.create('', {}, PageID::SLIDES)
+end
+
+for language in @config[:languages] + [:default]
+    compile '/**/*', rep: language do
+        I18n.locale = item_rule.language.code unless item_rule.language.nil?
+
+        # filters
+        case item[:presentation]
+        when 'revealjs'
+            case item[:extension]
+            when 'asciidoc', 'adoc'
+                filter :asciidoctor_converter, backend: :revealjs
+            when 'markdown', 'md'
+                # Don't use filter.
+                # The raw markdown text is embedded on the output HTML
+            end
+        when 'bespoke'
+            filter :asciidoctor_converter, backend: :bespoke
+        else
+            case item[:extension]
+            when 'asciidoc', 'adoc'
+                filter :asciidoctor
+            when 'erb'
+                filter :erb
+            when 'scss'
+                filter :sass, Compass.sass_engine_options
+            when 'slim'
+                filter :slim, pretty: true
+            when 'markdown', 'md'
+                filter :kramdown, input: 'GFM', syntax_highlighter: 'rouge'
+                # filter :commonmarker, [:DEFAULT]
+            end
+        end
+        rule = item_rule
+
+        # layout
+        layout(rule.layout_path) unless rule.layout_path.nil?
+
+        # routes
+        lang = @item_rep.name.to_s
+        output_path = rule.output_path(lang)
+        write(output_path) unless output_path.nil?
+    end
+end
+
+layout '/**/*.erb', :erb
+layout '/**/*.md', :kramdown, input: 'GFM', syntax_highlighter: 'rouge'
+# layout '/**/*.md', :commonmarker, [:DEFAULT]
+layout '/**/*.slim', :slim, pretty: true

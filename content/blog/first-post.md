@@ -5,7 +5,7 @@ kind: article
 language: ja
 ---
 
-テスト投稿 - 本文。a
+テスト投稿 - 本文
 
 ### Scala
 
