@@ -1,4 +1,4 @@
-gem 'i18n'
+gem "i18n"
 
 class Util
     def self.file_basename(path, extensions)

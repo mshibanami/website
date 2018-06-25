@@ -1,9 +1,20 @@
 ja:
-    blog: "ブログ"
-    home: "ホーム"
-    slides: "スライド"
-    time:
+    blog: ブログ
+    home: ホーム
+    slides: スライド
+    next: 次へ
+    previous: 前へ
+    pagination:
+        older: 古い
+        newer: 新しい
+    defaults: &defaults
+    date:
+        <<: *defaults
         formats:
-            default: "%Y/%m/%d %H:%M:%S"
-            long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-            short: "%Y年%m月%d日 %H:%M"
+            default: "%Y年%m月%d日"
+            short: "%Y年%m月%d日"
+    time:
+        <<: *defaults
+        formats:
+            default: "%Y年%-m月%-d日 %-H:%M:%S"
+            short: "%Y年%-m月%-d日"

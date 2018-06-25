@@ -1,13 +1,14 @@
+- rule = item_rule()
 #disqus_thread
 javascript:
     var disqus_config = function () {
-            this.page.url = "#{@config[:base_url]}#{output_path}";
-            this.page.identifier = "#{output_path}";
+            this.page.url = "#{@config[:base_url]}#{rule.output_path}";
+            this.page.identifier = "#{rule.output_path_base}";
             this.page.title = "#{@item[:title]}"
     };
     (function() {
             var d = document, s = d.createElement('script');
-            s.src = '//mshibanami.disqus.com/embed.js';
+            s.src = "//#{@config[:disqus_id]}.disqus.com/embed.js";
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
     })();

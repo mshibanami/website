@@ -31,6 +31,7 @@ mainClassName = "org.gradle.sample.Main"
     Caused by: java.lang.NullPointerException
 
 今までrunなどのGradleのタスクから実行していた時には出なかった例外だ。
+
 例外が発生しているのは以下のコード。
 
 ```java

@@ -1,3 +1,5 @@
+- rule = item_rule()
+
 meta charset="utf-8"
 meta content="IE=edge" http-equiv="X-UA-Compatible"
 meta content="width=device-width, initial-scale=1" name="viewport"
@@ -11,17 +13,17 @@ meta content="#{@config[:author]}" name="author"
 meta content="website" property="og:type"
 meta content="#{@config[:title]}" property="og:title"
 meta content="/apple-touch-icon.png" property="og:image"
-meta content="#{output_path}" property="og:url"
-meta content="#{language.code}_#{language.region_code}" property="og:locale"
+meta content="#{rule.output_path}" property="og:url"
+meta content="#{rule.language.code}_#{rule.language.region_code}" property="og:locale"
 link href="/favicon.png" rel="icon" type="image/png"
 link href="/apple-touch-icon.png" rel="apple-touch-icon"
 link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet"
-link href="/assets/css/compiled/style.css" rel="stylesheet"
+link href="/assets/css/compiled/main.css" rel="stylesheet"
 
-script src='/assets/jquery/jquery.js' defer=""
-script src='/assets/foundation-sites/js/foundation.js' defer=""
-script src='/assets/@fortawesome/fontawesome/index.js' defer=""
-script src='/assets/@fortawesome/fontawesome-free-brands/index.js' defer=""
+script src='/lib/jquery/jquery.min.js' defer=""
+script src='/lib/foundation-sites/js/foundation.min.js' defer=""
+script src="https://use.fontawesome.com/releases/v5.0.13/js/brands.js" integrity="sha384-G/XjSSGjG98ANkPn82CYar6ZFqo7iCeZwVZIbNWhAmvCF2l+9b5S21K4udM7TGNu" crossorigin="anonymous" defer=""
+script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous" defer=""
 script src='/assets/js/app.js' defer=""
 
 == render '/partials/google-analytics.erb'

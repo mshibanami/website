@@ -1,17 +1,24 @@
 en:
-    blog: "Blog"
-    home: "Home"
-    slides: "Slides"
-
-    defaults: &defaults
+    blog: Blog
+    home: Home
+    slides: Slides
+    next: Next
+    previous: Previous
+    pagination:
+        older: Older
+        newer: Newer
+    date_names: &date_names
         month_names:
             [~, January, February, March, April, May, June, July, August, September, October, November, December]
         abbr_month_names:
             [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
-        formats:
-            default: "%d. %B %Y"
-            short: "%d %b, %Y"
     date:
-        <<: *defaults
+        <<: *date_names
+        formats:
+            default: "%-d %b %Y"
+            short: "%-d %b %Y"
     time:
-        <<: *defaults
+        <<: *date_names
+        formats:
+            default: "%-d %b %Y %-H:%M:%S"
+            short: "%-d %b %Y"

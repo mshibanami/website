@@ -1,24 +1,49 @@
-- number_of_posts = 3 unless @number_of_posts.nil?
-- index = 0 unless @index.nil?
-- articles = sorted_items_of(@kind)
-- if @number_of_posts != nil
-    - articles = articles.each_slice(@number_of_posts).to_a[@index]
-    
+- MIN_PAGE_NUM = 1
+- number_of_posts = @number_of_posts.nil? ? Const::DEFAULT_NUM_OF_ITEMS : @number_of_posts
+- page_number = @page_number
+- page_number = MIN_PAGE_NUM if page_number.nil?
+- index = page_number - MIN_PAGE_NUM
+- all_articles = sorted_items_of(@kind)
+- sliced_articles = all_articles.each_slice(number_of_posts).to_a()
+- articles = sliced_articles[index]
+- root_path = PageKind.new(@kind).root_path(@item_rep.name)
+
 .grid-container
-    .cards.grid-y
+    .grid-y
         - for a in articles
             - created_at = a[:created_at]
-            - rule = a.to_item_rule(@config)
-            - path = rule.output_path(language.code)
+            - rule = a.to_item_rule(@item_rep, @config)
+            - path = rule.output_path
             - path = path.no_indexed unless path.nil?
             - title = a[:title]
-            .card.cell
+            .item-card.cell
                 .grid-y
                     .cell
                         h3
                             a href="#{path}"
                                 span #{title}
                     .cell
-                        span #{l(created_at, format: :short)}
+                        span.date #{l(created_at, format: :short)}
                     .cell
                         == get_post_start(a)
+
+        / --- Page Navigator ---
+        .cell
+            ul.pagination.text-center aria-label="Pagination" data-page="6" data-total="16" role="navigation"
+                - has_newer = page_number > MIN_PAGE_NUM
+                - has_older = page_number < sliced_articles.length
+
+                li class=['pagination-previous', has_newer ? '' : 'disabled']
+                    - if has_newer
+                        a href="#{root_path}/#{page_number - 1}"
+                            | #{t("pagination.newer")}
+                            span.show-for-sr
+                    - else
+                        | #{t("pagination.newer")}
+                li class=['pagination-next', has_older ? '' : 'disabled']
+                    - if has_older
+                        a href="#{root_path}/#{page_number + 1}"
+                            | #{t("pagination.older")}
+                            span.show-for-sr
+                    - else
+                        | #{t("pagination.older")}

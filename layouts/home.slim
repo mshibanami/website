@@ -1,9 +1,11 @@
 == render '/partials/base.slim' do
     .grid-container
-        h2
-            a href="./blog/" #{t("blog")}
-        == render '/partials/blog-summaries.slim'
+        section.summaries
+            h2
+                a href="./blog/" #{t("blog")}
+            == render '/partials/blog-summaries.slim'
         
-        h2
-            a href="./slides/" #{t("slides")}
-        == render '/partials/items-summaries.slim', kind: 'slide'
+        section.summaries
+            h2
+                a href="./slides/" #{t("slides")}
+            == render '/partials/items-summaries.slim', kind: 'slide'
