@@ -89,7 +89,6 @@ class ItemRule
 
     def output_path
         return nil if @output_path_base.nil?
-
         if creates_localized_pages
             return nil if language.nil?
             

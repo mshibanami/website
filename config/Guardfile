@@ -1,4 +1,4 @@
-directories([
+dirs = directories([
     "compass",
     "config",
     "content",
@@ -6,10 +6,13 @@ directories([
     "i18n",
     "lib",
     "output",
-]).select do |d|
-    unless Dir.exist?(d)
-        UI.error("Directory `#{d}` does not exist. check `directories` in Guardfile.")
-        exit
+])
+unless dirs.nil?
+    dirs.select do |d|
+        unless Dir.exist?(d)
+            UI.error("Directory `#{d}` does not exist. check `directories` in Guardfile.")
+            exit
+        end
     end
 end
 
