@@ -11,6 +11,7 @@ gem 'commonmarker'
 gem 'compass'
 gem 'guard'
 gem 'guard-livereload'
+gem 'guard-rspec', require: false
 gem 'kramdown'
 gem 'nanoc'
 gem 'nokogiri'
