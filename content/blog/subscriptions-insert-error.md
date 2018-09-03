@@ -5,7 +5,7 @@ kind: article
 language: en
 ---
 
-Today I noticed that [subscriptions:insert](https://developers.google.com/youtube/v3/docs/subscriptions/insert) of YouTube Data API V3 returns an error like this:
+Today I noticed that the [subscriptions:insert](https://developers.google.com/youtube/v3/docs/subscriptions/insert)method of YouTube Data API V3 returns this error:
 
 ```json
 {
@@ -23,7 +23,7 @@ Today I noticed that [subscriptions:insert](https://developers.google.com/youtub
 }
 ```
 
-A Request body that I sent was here:
+This is the request body that I sent:
 
 ```json
 {
@@ -35,7 +35,8 @@ A Request body that I sent was here:
 }
 ```
 
-The above request was valid before. But now, we need a `kind` property for `snippet.resourceId`, like this:
+The above request was valid before. But now, it seems that we need a `kind`
+property for `snippet.resourceId` see below:
 
 ```json
 {
@@ -48,4 +49,5 @@ The above request was valid before. But now, we need a `kind` property for `snip
 }
 ```
 
-It seems that the subscribing to channels without it has been regarded as an invalid request.
+It would appear that subscribing to channels without this step
+is regarded as an invalid request.
