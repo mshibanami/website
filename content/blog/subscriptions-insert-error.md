@@ -5,7 +5,7 @@ kind: article
 language: en
 ---
 
-Today I noticed that the [subscriptions:insert](https://developers.google.com/youtube/v3/docs/subscriptions/insert)method of YouTube Data API V3 returns this error:
+Today I noticed that the [subscriptions:insert](https://developers.google.com/youtube/v3/docs/subscriptions/insert) method of YouTube Data API V3 returns this error:
 
 ```json
 {
