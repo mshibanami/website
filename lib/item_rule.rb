@@ -12,6 +12,8 @@ class ItemRule
 
     attr_reader :output_path_base
 
+    attr_reader :uses_filter
+
     def initialize(identifier, presentation, language, config)
         available_languages = config[:available_languages]
         document_extensions = config[:document_extensions]
@@ -19,6 +21,9 @@ class ItemRule
 
         doc_exts = document_extensions.join("|")
         default_layout = "/default.*"
+
+        @uses_filter = true
+
         case identifier
         when PageID::INDEX
             @layout_path = "/index.*"
@@ -36,6 +41,10 @@ class ItemRule
             @layout_path = "/pages/slides-pages.*"
             @output_path_base = "/slides/index.html"
             @creates_localized_pages = true
+        when %r{^/lib/}
+            @output_path_base = identifier.to_s
+            @creates_localized_pages = false
+            @uses_filter = false
         when %r{^/(?<dir>.*)/(?<page_number>\d)$}
             case $LAST_MATCH_INFO[:dir]
             when "blog"

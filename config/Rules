@@ -51,31 +51,34 @@ for language in @config[:available_languages] + [:default]
         I18n.locale = rule.language.code unless rule.language.nil?
 
         # filters
-        case item[:presentation]
-        when "revealjs"
-            case item[:extension]
-            when "asciidoc", "adoc"
-                filter :asciidoctor_converter, backend: :revealjs
-            when "markdown", "md"
-                # Don't use filter.
-                # The raw markdown text is embedded on the output HTML
+        if rule.uses_filter
+            case item[:presentation]
+            when "revealjs"
+                case item[:extension]
+                when "asciidoc", "adoc"
+                    filter :asciidoctor_converter, backend: :revealjs
+                when "markdown", "md"
+                    # Don't use filter.
+                    # The raw markdown text is embedded on the output HTML
+                end
+            when "bespoke"
+                filter :asciidoctor_converter, backend: :bespoke
+            else
+                case item[:extension]
+                when "asciidoc", "adoc"
+                    filter :asciidoctor
+                when "erb"
+                    filter :erb
+                when "scss"
+                    filter :sass, Compass.sass_engine_options
+                when "slim"
+                    filter :slim, pretty: true
+                when "markdown", "md"
+                    filter :kramdown, KRAMDOWN_SETTINGS
+                    # filter :commonmarker, [:DEFAULT]
+                end
             end
-        when "bespoke"
-            filter :asciidoctor_converter, backend: :bespoke
         else
-            case item[:extension]
-            when "asciidoc", "adoc"
-                filter :asciidoctor
-            when "erb"
-                filter :erb
-            when "scss"
-                filter :sass, Compass.sass_engine_options
-            when "slim"
-                filter :slim, pretty: true
-            when "markdown", "md"
-                filter :kramdown, KRAMDOWN_SETTINGS
-                # filter :commonmarker, [:DEFAULT]
-            end
         end
 
         # layout

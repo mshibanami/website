@@ -6,7 +6,6 @@ kind: slide
 ---
 
 [.center]
-[id=slide1]
 == Dynamic Type について
 
 [.noboder]
@@ -14,7 +13,6 @@ image::/assets/img/sick_rougan_smartphone.png[height=800]
 
 @mshibanami
 
-[id=slide2]
 == Dynamic Type とは？
 
 [%step]
@@ -33,7 +31,6 @@ image::/assets/img/sick_rougan_smartphone.png[height=800]
 さらに大きい5サイズを選べるようになり、全12サイズから選択可能になる。
 --
 
-[id=slide3]
 == サイズカテゴリは細かく適用 [red]#できない#
 
 例えば…
@@ -43,7 +40,6 @@ image::/assets/img/sick_rougan_smartphone.png[height=800]
 ** [gray]#色々試したら UIWindow の traitCollection を override するとできてるような挙動となった。でも traitCollection は override してはいけないと Apple が言ってるのでやらないように！#
 * 特定画面に適用: 条件を満たす一部画面でのみ可能 (後述)
 
-[id=slide4]
 == Dynamic Type に対応しているアプリ
 
 +++
@@ -56,7 +52,6 @@ image::/assets/img/sick_rougan_smartphone.png[height=800]
 * LINE
 * など
 
-[id=slide5]
 == なぜ今さら Dynamic Type？
 
 [NOTE.speaker]
@@ -93,7 +88,6 @@ iOS 7 からすでにある。
 * Dynamic Type は iOS 7 からある機能。
 --
 
-[id=slide6]
 == Dynamic Typeは誰にとってどんな機能か
 
 +++
@@ -105,7 +99,6 @@ iOS 7 からすでにある。
 * エンジニア にとって
 * QA にとって
 
-[id=slide7]
 == ユーザーにとっての Dynamic Type
 
 [%step]
@@ -118,7 +111,6 @@ iOS 7 からすでにある。
 <img class="fragment fade-in" src="/assets/img/IMG_322498D47518-1.jpeg" height="500">
 +++
 
-[id=slide8]
 == デザイナーにとっての Dynamic Type
 
 [%step]
@@ -130,7 +122,6 @@ iOS 7 からすでにある。
 ** Accessibility◯◯ の挙動を指示する場合、テスト項目が増える事も周知しておく
 * デザインテストの確認項目が増える
 
-[id=slide9]
 == エンジニアにとっての Dynamic Type
 
 [%step]
@@ -148,7 +139,6 @@ iOS 7 からすでにある。
 * 結局、実案件では、「このフォントあと少し小さく」とか言われると思う。
 --
 
-[id=slide10]
 == QA にとっての Dynamic Type
 
 [%step]
@@ -157,7 +147,6 @@ iOS 7 からすでにある。
 * 黙ってると全てのサイズカテゴリをテストするハメに！？
 ** 今までのテスト項目が *12 倍* ( = サイズカテゴリの総数) に…
 
-[id=slide11]
 == どうすれば Dynamic Type に対応できるか？
 
 +++
@@ -173,7 +162,6 @@ UILabel 等テキスト表示ビューを対応させたい場合:
 </p>
 +++
 
-[id=slide12]
 == テキストスタイルとは？
 
 Apple が予め決めた以下項目をまとめたフォント設定
@@ -185,26 +173,22 @@ Apple が予め決めた以下項目をまとめたフォント設定
 * [〜 iOS 10] フォントサイズの上限値 (後述)
 
 [%notitle]
-[id=slide13]
 == Apple Human Interface Guideline
 
 image::/assets/img/skitched-20170918-212145.png[canvas,size=contain]
 
 [.center]
-[id=slide14]
 == テキストスタイルデモ
 
 [.noboder]
 image::/assets/img/Pasted_Image_2017_11_26_3_47.png[height=1100]
 
-[id=slide15]
 == テキストスタイルは使用が推奨されている
 
 image::/assets/img/Pasted_Image_2017_11_24_6_40.png[height=850]
 
 Human Interface Guidelines の Typography より
 
-[id=slide16]
 == サイズカテゴリは色んな方法で設定可能
 
 [%step]
@@ -226,10 +210,8 @@ Human Interface Guidelines の Typography より
 --
 
 [.center]
-[id=slide17]
 == 実装方法
 
-[id=slide18]
 == Interface Builder 上での指定方法
 
 テキストを表示するビューに設定項目がある
@@ -251,7 +233,6 @@ Automatically Adjusts Font:
 - レイアウトを自前でやってる時に必要かもしれない程度のもの
 --
 
-[id=slide19]
 == コードで指定する場合
 
 [source,swift]
@@ -269,7 +250,6 @@ label.adjustsFontForContentSizeCategory = true
 チェックを外すケース: 特殊なレイアウトを採用しているなど、実際の適用は独自のタイミングで行いたい時など？
 --
 
-[id=slide20]
 == サイズカテゴリ一覧
 
 * XSmall
@@ -285,7 +265,6 @@ label.adjustsFontForContentSizeCategory = true
 * [brown]#AccessibilityXXLarge#
 * [brown]#AccessibilityXXXLarge#
 
-[id=slide21]
 == 現在のサイズカテゴリを取得する
 
 [source,swift]
@@ -295,7 +274,6 @@ UIApplication
     .preferredContentSizeCategory
 ----
 
-[id=slide22]
 == 特定の画面にサイズカテゴリを設定する
 
 [source,swift]
@@ -317,7 +295,6 @@ childVC
 
 欠点: 親 View Controller を持つ画面にしか適用できない
 
-[id=slide23]
 == アプリ単体でサイズカテゴリを設定する ([red]#危険#)
 
 [source,swift]
@@ -336,10 +313,8 @@ class Window: UIWindow {
 https://developer.apple.com/documentation/uikit/uitraitenvironment/1623514-traitcollection[してはいけない事とされている] 黒魔術なのでやらないように！
 
 [.center]
-[id=slide24]
 == [iOS 11] カスタムフォントについて
 
-[id=slide25]
 == カスタムフォントとは？
 
 好きなフォントで特定のテキストスタイルのように拡縮できる機能
@@ -353,7 +328,6 @@ https://developer.apple.com/documentation/uikit/uitraitenvironment/1623514-trait
 ** Apple「なるべくテキストスタイルを使ってください…」
 ** エンジニア「テキストスタイルの方が実装も楽なんで…」
 
-[id=slide26]
 == カスタムフォント指定に必要な情報
 
 * フォント名とスタイル
@@ -370,18 +344,15 @@ https://developer.apple.com/documentation/uikit/uitraitenvironment/1623514-trait
 +++
 
 [.center]
-[id=slide27]
 == カスタムフォント デモ
 
 [.noboder]
 image::/assets/img/Pasted_Image_2017_11_26_4_22.png[height=1100]
 
 [.center]
-[id=slide28]
 == [iOS 11] 画像の拡大機能について
 
 [.center]
-[id=slide29]
 == 画像の拡大機能とは？
 
 サイズカテゴリが Accessibility◯◯ の時に画像を拡大できる機能
@@ -395,13 +366,11 @@ image::/assets/img/Pasted_Image_2017_11_26_4_22.png[height=1100]
 *** [red]#なのでデザイナーさんは画像リソースを `@2x.png` 等ではなくベクター画像 (PDF) で出力を！#
 
 [.center]
-[id=slide30]
 == 画像の拡大機能デモ
 
 [.noboder]
 image::/assets/img/Pasted_Image_2017_11_26_3_52.png[height=1100]
 
-[id=slide31]
 == 画像の拡大率一覧
 
 |===========================
@@ -416,10 +385,8 @@ image::/assets/img/Pasted_Image_2017_11_26_3_52.png[height=1100]
 
 iOS 12 以降はまた変わるかも？
 
-[id=slide32]
 == ぶっちゃけ、サイズカテゴリの変更を監視すれば何でもできる
 
-[id=slide33]
 == サイズカテゴリの変更監視方法
 [source,swift]
 ----
@@ -442,10 +409,8 @@ class MyViewController: UIViewController {
 +++
 
 [.center]
-[id=slide34]
 == デザイナー「指示書どう書けば良いの？」
 
-[id=slide35]
 == デザイン指示書の書き方
 
 [%step]
@@ -457,7 +422,6 @@ class MyViewController: UIViewController {
 * Accessibility サイズ時の特殊挙動がある場合はメモ書きする
 ** 例: （横並びのテキストについて）「AX サイズ時は縦に並べる」
 
-[id=slide36]
 == Sketch の場合
 
 image::/assets/img/skitched-20170914-001321.jpg[height=500]
@@ -482,7 +446,6 @@ https://github.com/getflourish/Sketch-Style-Inventory というのもある。
 * `iOS-11-Beta-Sketch.zip`
 --
 
-[id=slide37]
 == QA & デザイナー「テストどうすれば良いの？」
 
 [%step]
@@ -495,7 +458,6 @@ https://github.com/getflourish/Sketch-Style-Inventory というのもある。
 ** AccessibilityXXXLarge (全サイズ最大)
 
 [.center]
-[id=slide38]
 == 対応は慎重に
 
 [%step]
@@ -505,7 +467,6 @@ https://github.com/getflourish/Sketch-Style-Inventory というのもある。
 * お客さんの文字サイズ変更機能へのモチベーションが低いかも
 * Accessibility サイズの場合、特殊な動きをする
 
-[id=slide39]
 == こんな流れが良いのでは？ (対応フェーズ分割編)
 
 [%step]
@@ -518,7 +479,6 @@ https://github.com/getflourish/Sketch-Style-Inventory というのもある。
 3. お客さんに Dynamic Type の存在を説明し、機能の使用許可を得る。
 4. 固定フォントにしているところを 本来指示されていたテキストスタイルに置き換える。
 
-[id=slide40]
 == Accessibility サイズカテゴリの対応について
 
 [%step]
@@ -535,17 +495,14 @@ https://github.com/getflourish/Sketch-Style-Inventory というのもある。
 +++
 
 [.center]
-[id=slide41]
 == そのほか
 
-[id=slide42]
 == [〜 iOS 10] 文字サイズの上限があった
 
 image::/assets/img/ios-type-scaling-behavior.png[height=1000]
 
 出典: https://github.com/Raizlabs/BonMot
 
-[id=slide43]
 == [iOS 11] 基本スタイルのセルに動きあり
 
 Accessibility サイズになると…
@@ -561,7 +518,6 @@ image::/quiver-image-url/D7A8A4E4D6726A1CA11E42C4E23DD08F.jpg[]
 [%step]
 （罫線もちょっと太くなってる）
 
-[id=slide44]
 == 多分こんなことをやっている
 
 [source,swift]
@@ -585,7 +541,6 @@ class StackTableViewCell: UITableViewCell {
 }
 ----
 
-[id=slide45]
 == まとめ
 
 [%step]
@@ -595,11 +550,9 @@ class StackTableViewCell: UITableViewCell {
 * テスト対象となるサイズの範囲に気をつける
 
 [.center]
-[id=slide46]
 == 今回使ったデモアプリ
 
 https://github.com/mshibanami/DynamicTypeShowcase
 
 [.center]
-[id=slide47]
 == ご清聴ありがとうございました。
