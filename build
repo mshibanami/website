@@ -9,4 +9,6 @@ bundle install
 rm -rf output
 
 bundle exec nanoc compile --env=production
-bundle exec nanoc check internal_links mixed_content stale
+
+# TODO: https://github.com/nanoc/nanoc/issues/1414
+# bundle exec nanoc check internal_links mixed_content stale
