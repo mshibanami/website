@@ -18,20 +18,20 @@
 
 ## How to...
 
-### build
+### Build
 
 ```bash
 ./build
 ```
 
-### test
+### Test
 
 ```bash
 rspec
 nanoc check --all
 ```
 
-### edit articles with live preview
+### Edit articles with the live preview
 
 1. Install [LiveReload](http://livereload.com/) to your browser
 2. Run this command:
@@ -41,6 +41,10 @@ nanoc check --all
     ```
 3. Access <http://localhost:3000/>
 4. Enable LiveReload of your browser
+
+### Link libraries
+
+Create a symbolick link of your library's folder in `content/assets/lib`.
 
 ### About slides
 Documents for presentation have `presentation` like this:
