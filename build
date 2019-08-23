@@ -10,5 +10,4 @@ rm -rf output
 
 bundle exec nanoc compile --env=production
 
-# TODO: https://github.com/nanoc/nanoc/issues/1414
-# bundle exec nanoc check internal_links mixed_content stale
+bundle exec nanoc check internal_links mixed_content stale
