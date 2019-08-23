@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "foundation-sites": "^6.5.3",
-    "jquery": "*",
+    "jquery": "^3.4.1",
     "reveal.js": "^3.8.0"
   }
 }
