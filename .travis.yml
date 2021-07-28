@@ -7,7 +7,7 @@ branches:
     - "master"
 script:
   - bundle exec rake spec
-  - ./build
+  - ./build.sh
 sudo: false
 git:
   depth: 10

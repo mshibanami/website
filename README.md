@@ -21,7 +21,7 @@
 ### Build
 
 ```bash
-./build
+./build.sh
 ```
 
 ### Test
