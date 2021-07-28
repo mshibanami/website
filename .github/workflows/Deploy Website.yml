@@ -15,7 +15,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
-          github_token: ${{ secrets.USER_GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.USER_GITHUB_TOKEN }}
           external_repository: mshibanami/mshibanami.github.io
           publish_dir: ./output
           force_orphan: true
