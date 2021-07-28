@@ -12,6 +12,7 @@ gem 'compass'
 gem 'guard'
 gem 'guard-livereload'
 gem 'guard-rspec', require: false
+gem 'i18n'
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
 gem 'nanoc'

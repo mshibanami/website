@@ -68,19 +68,21 @@ def copyright_year
 end
 
 module Nanoc
-    module DocumentViewMixin
-        def to_item_rule(item_rep, config)
-            ItemRule.new(
-                identifier,
-                self[:presentation],
-                item_rep.to_language,
-                config)
+    module Core
+        module DocumentViewMixin
+            def to_item_rule(item_rep, config)
+                ItemRule.new(
+                    identifier,
+                    self[:presentation],
+                    item_rep.to_language,
+                    config)
+            end
         end
-    end
 
-    class CompilationItemRepView
-        def to_language
-            Language.new(@item_rep.name.to_s) if @item_rep
+        class CompilationItemRepView
+            def to_language
+                Language.new(@item_rep.name.to_s) if @item_rep
+            end
         end
     end
 end

@@ -1,8 +1,8 @@
-- MIN_PAGE_NUM = 1
+- min_page_num = 1
 - number_of_posts = @number_of_posts.nil? ? Const::DEFAULT_NUM_OF_ITEMS : @number_of_posts
 - page_number = @page_number
-- page_number = MIN_PAGE_NUM if page_number.nil?
-- index = page_number - MIN_PAGE_NUM
+- page_number = min_page_num if page_number.nil?
+- index = page_number - min_page_num
 - all_articles = sorted_items_of(@kind)
 - sliced_articles = all_articles.each_slice(number_of_posts).to_a()
 - articles = sliced_articles[index]
@@ -30,7 +30,7 @@
         / --- Page Navigator ---
         .cell
             ul.pagination.text-center aria-label="Pagination" data-page="6" data-total="16" role="navigation"
-                - has_newer = page_number > MIN_PAGE_NUM
+                - has_newer = page_number > min_page_num
                 - has_older = page_number < sliced_articles.length
 
                 li class=['pagination-previous', has_newer ? '' : 'disabled']
