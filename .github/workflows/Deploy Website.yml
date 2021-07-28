@@ -1,6 +1,8 @@
 name: Deploy Website
 
 on:
+  schedule:
+    - cron: "0 1 1 * *"
   push:
 
 jobs:
@@ -20,5 +22,5 @@ jobs:
           publish_dir: ./output
           publish_branch: master
           force_orphan: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
