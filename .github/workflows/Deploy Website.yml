@@ -1,25 +1,22 @@
 name: Deploy Website
 
 on:
-  schedule:
-    - cron:  '0 1 * * *'
-  repository_dispatch:
+  push:
 
 jobs:
   build:
-
     runs-on: macos-10.15
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      env:
-        USER_GITHUB_CLIENT_ID: ${{ secrets.USER_GITHUB_CLIENT_ID }}
-        USER_GITHUB_CLIENT_SECRET: ${{ secrets.USER_GITHUB_CLIENT_SECRET }}
-      run: ./build.sh
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      if: ${{ github.ref == 'refs/heads/master' }}
-      with:
-        github_token: ${{ secrets.USER_GITHUB_TOKEN }}
-        publish_dir: ./output
+      - uses: actions/checkout@v2
+      - name: Build
+        env:
+          USER_GITHUB_CLIENT_ID: ${{ secrets.USER_GITHUB_CLIENT_ID }}
+          USER_GITHUB_CLIENT_SECRET: ${{ secrets.USER_GITHUB_CLIENT_SECRET }}
+        run: ./build.sh
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          github_token: ${{ secrets.USER_GITHUB_TOKEN }}
+          publish_dir: ./output
