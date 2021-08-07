@@ -4,10 +4,4 @@ set -ex
 
 npm install
 
-bundle install
-
-rm -rf output
-
-bundle exec nanoc compile --env=production
-
-bundle exec nanoc check internal_links mixed_content stale
+npm run build

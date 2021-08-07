@@ -1,0 +1,30 @@
+@import "colors";
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 0 1.25rem;
+}
+
+.snsLinks {
+  @apply flex justify-center;
+
+  a {
+    @apply dynamic-text-gray-600;
+    display: inline-block;
+    margin-left: 2rem;
+    width: 2rem;
+  }
+
+  a:first-child {
+    margin-left: 0;
+  }
+}
+
+.tileColor {
+  @apply bg-white dark:bg-gray-700;
+}

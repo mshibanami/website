@@ -1,0 +1,47 @@
+.dynamic-text-gray-200 {
+  @apply text-gray-200 dark:text-gray-700;
+}
+
+.dynamic-text-gray-300 {
+  @apply text-gray-300 dark:text-gray-600;
+}
+
+.dynamic-text-gray-400 {
+  @apply text-gray-400 dark:text-gray-500;
+}
+
+.dynamic-text-gray-500 {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.dynamic-text-gray-600 {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+.dynamic-bg-gray-700 {
+  @apply bg-gray-700 dark:bg-gray-200;
+}
+
+.dynamic-bg-gray-600 {
+  @apply bg-gray-600 dark:bg-gray-300;
+}
+
+.dynamic-bg-gray-500 {
+  @apply bg-gray-500 dark:bg-gray-400;
+}
+
+.dynamic-bg-gray-400 {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+.dynamic-bg-gray-300 {
+  @apply bg-gray-300 dark:bg-gray-600;
+}
+
+.dynamic-bg-gray-200 {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.dynamic-bg-gray-100 {
+  @apply bg-gray-100 dark:bg-gray-800;
+}

@@ -1,0 +1,29 @@
+@import "colors";
+
+.heading1 {
+  @apply text-4xl;
+  @apply dynamic-text-gray-600;
+  font-weight: 800;
+  margin: 2rem 0 2rem 0;
+}
+
+.heading2 {
+  @apply text-2xl;
+  @apply dynamic-text-gray-600;
+  font-weight: 800;
+  margin: 2rem 0 0 0;
+}
+
+.heading3 {
+  @apply text-lg;
+  @apply dynamic-text-gray-600;
+  font-weight: 800;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.body {
+  @apply text-base;
+  @apply dynamic-text-gray-600;
+  font-weight: 400;
+  margin: 1rem 0 0.5rem 0;
+}

@@ -1,0 +1,59 @@
+@import "text-styles.module.scss";
+
+.remark-highlight code {
+  padding: 0;
+}
+
+.markdown {
+  table {
+    @apply divide-gray-200;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  thead {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  td,
+  th {
+    @apply px-2 py-1 border border-gray-300;
+  }
+
+  tr:nth-child(odd) {
+    @apply bg-gray-200;
+  }
+
+  :not(pre) > code {
+    @apply bg-gray-100;
+    @apply dark:bg-gray-700;
+    font-size: 80%;
+    border-radius: 6px;
+    margin: 0;
+    padding: 0.2em 0.4em;
+  }
+
+  ol {
+    @apply list-disc;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  li {
+    @apply dynamic-text-gray-600;
+    margin-left: 1.5rem;
+  }
+
+  img {
+    @apply inline-block;
+  }
+
+  blockquote {
+    @apply dynamic-text-gray-500;
+    border-left: 0.25em solid #aaa;
+    padding: 0 1em;
+  }
+}

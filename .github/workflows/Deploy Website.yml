@@ -19,7 +19,7 @@ jobs:
         with:
           personal_token: ${{ secrets.USER_GITHUB_TOKEN }}
           external_repository: mshibanami/mshibanami.github.io
-          publish_dir: ./output
+          publish_dir: ./out
           publish_branch: master
           force_orphan: true
           user_name: "github-actions[bot]"
