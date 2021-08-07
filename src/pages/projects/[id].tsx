@@ -1,6 +1,5 @@
 import Layout from '../../components/layout'
 import Head from 'next/head'
-import Date from '../../components/date'
 import markdownStyles from '../../styles/markdown.module.scss'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getAllItemIds, getItem, Item, ItemType } from '../../lib/item'
