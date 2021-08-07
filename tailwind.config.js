@@ -3,8 +3,9 @@ delete colors['lightBlue']
 
 module.exports = {
   purge: [
-    '/src/pages/**/*.{js,ts,jsx,tsx}',
-    '/src/components/**/*.{js,ts,jsx,tsx}'
+    '/src/components/**/*.{js,ts,jsx,tsx}',
+    '/src/**/*.{js,jsx,ts,tsx,vue}',
+    '/public/**/*.html',
   ],
   darkMode: 'media',
   important: true,
