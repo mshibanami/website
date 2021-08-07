@@ -1,7 +1,7 @@
 @charset 'utf-8';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
 @import "colors";
 @import "text-styles.module.scss";
 
@@ -13,50 +13,52 @@
   @import "./vendor/prism/_prism-tomorrow";
 }
 
-:root {
-  @apply bg-white;
-  @apply dark:bg-gray-800;
-}
+@layer base {
+  :root {
+    @apply bg-white;
+    @apply dark:bg-gray-800;
+  }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-    sans-serif, Apple Color Emoji, Segoe UI Emoji;
-}
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+      sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  }
 
-html,
-body,
-body > div:first-child,
-div#__next,
-div#__next > div {
-  height: 100%;
-}
+  html,
+  body,
+  body > div:first-child,
+  div#__next,
+  div#__next > div {
+    height: 100%;
+  }
 
-h1 {
-  @apply heading1;
-}
+  h1 {
+    @apply heading1;
+  }
 
-h2 {
-  @apply heading2;
-}
+  h2 {
+    @apply heading2;
+  }
 
-h3 {
-  @apply heading3;
-}
+  h3 {
+    @apply heading3;
+  }
 
-p {
-  @apply body;
-  margin-block: 1em;
-  margin-inline: 0px;
-}
+  p {
+    @apply body;
+    margin-block: 1em;
+    margin-inline: 0px;
+  }
 
-a {
-  @apply text-blue-600;
-  @apply dark:text-blue-400;
-  text-decoration: none;
-}
+  a {
+    @apply text-blue-600;
+    @apply dark:text-blue-400;
+    text-decoration: none;
+  }
 
-a:hover {
-  text-decoration: underline;
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 footer {
