@@ -10,7 +10,6 @@ export default function Project({ item }: { item: Item }) {
     <Layout>
       <Head>
         <title>{item.title}</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"></link>
       </Head>
       <article className={markdownStyles.markdown}>
         <h1 className="text-center">{item.title}</h1>
