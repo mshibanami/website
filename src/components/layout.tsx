@@ -19,7 +19,6 @@ export default function Layout({
         <link href="/images/favicon-196.png" rel="shortcut icon" type="image/png" />
         <link href="/images/favicon-196.png" rel="shortcut icon" sizes="196x196" />
         <link href="/images/favicon-196.png" rel="apple-touch-icon" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" rel="stylesheet" />
         <meta
           name="description"
           content={Consts.PAGE_DESCRIPTION}
