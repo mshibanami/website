@@ -16,7 +16,7 @@ export default function Navbar() {
     }, [])
 
     return (
-        <nav className="mx-auto md:flex px-5 py-3 md:py-4">
+        <nav className="mx-auto max-w-5xl md:flex px-5 py-3 md:py-4">
             <div className="flex justify-between items-center">
                 <Link href="/">
                     <a className="hover:no-underline">
