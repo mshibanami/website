@@ -13,7 +13,7 @@ export default function Layout({
   home?: boolean
 }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-full">
       <Head>
         <link href="/images/favicon-196.png" rel="shortcut icon" type="image/png" />
         <link href="/images/favicon-196.png" rel="shortcut icon" sizes="196x196" />
