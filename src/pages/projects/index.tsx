@@ -28,7 +28,7 @@ function ProjectTile({ item }: { item: Item }) {
             <a className="hover:no-underline">
                 <div className={`${utilStyles.tileColor} p-5 rounded-2xl shadow-2xl flex flex-col sm:flex-row gap-5`}>
                     <img
-                        className="dynamic-bg-gray-500 rounded-xl bg-center object-cover w-64 h-44 min-w-0"
+                        className="bg-gray-200 dark:bg-gray-500 rounded-xl bg-center object-cover w-64 h-44 min-w-0"
                         src={item.thumbnailPath}
                         alt={`Thumbnail of "${item.title}"`} />
                     <div className="flex flex-1 flex-col gap-5 p-1 justify-center">
