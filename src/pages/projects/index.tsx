@@ -26,13 +26,11 @@ function ProjectTile({ item }: { item: Item }) {
     return (
         <Link href={`/projects/${item.id}`}>
             <a className="hover:no-underline">
-                <div className={`${utilStyles.tileColor} p-5 rounded-2xl light:shadow-2xl flex flex-col sm:flex-row gap-5`}>
+                <div className={`${utilStyles.tileColor} p-5 rounded-2xl shadow-2xl flex flex-col sm:flex-row gap-5`}>
                     <img
-                        className="dynamic-bg-gray-500 rounded-xl bg-center object-cover h-auto w-auto min-w-0"
+                        className="dynamic-bg-gray-500 rounded-xl bg-center object-cover w-64 h-44 min-w-0"
                         src={item.thumbnailPath}
-                        width={240}
-                        height={176}
-                        alt="Thumbnail" />
+                        alt={`Thumbnail of "${item.title}"`} />
                     <div className="flex flex-1 flex-col gap-5 p-1 justify-center">
                         <h2 className="my-0">
                             {item.title}
