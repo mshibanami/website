@@ -1,11 +1,9 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect } from "react";
 import Consts from "../lib/consts";
 import navbarStyles from "./navbar.module.scss";
-import profilePhoto from "../../public/images/profile.jpg";
 
 export default function Navbar() {
     useEffect(() => {
@@ -23,8 +21,8 @@ export default function Navbar() {
                 <Link href="/">
                     <a className="hover:no-underline">
                         <h1 className="font-bold text-xl dynamic-text-gray-600 flex items-center m-0 gap-3">
-                            <Image
-                                src={profilePhoto}
+                            <img
+                                src="/images/profile.jpg"
                                 width={32}
                                 height={32}
                                 alt="Profile image"

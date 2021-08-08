@@ -5,7 +5,6 @@ import { getSortedItems, Item, ItemType } from '../../lib/item'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import Consts from '../../lib/consts'
-import Image from 'next/image'
 
 export default function Projects({ allItems }: { allItems: Item[] }) {
     return (
@@ -28,7 +27,7 @@ function ProjectTile({ item }: { item: Item }) {
         <Link href={`/projects/${item.id}`}>
             <a className="hover:no-underline">
                 <div className={`${utilStyles.tileColor} p-5 rounded-2xl light:shadow-2xl flex flex-col sm:flex-row gap-5`}>
-                    <Image
+                    <img
                         className="dynamic-bg-gray-500 rounded-xl bg-center object-cover h-auto w-auto min-w-0"
                         src={item.thumbnailPath}
                         width={240}

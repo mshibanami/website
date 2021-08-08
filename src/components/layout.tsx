@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import utilStyles from '../styles/utils.module.scss'
 import Navbar from './navbar'
 import Consts from '../lib/consts'
@@ -58,8 +57,7 @@ export default function Layout({
 function HomeTopContent() {
   return (
     <>
-      <Image
-        priority
+      <img
         src="/images/profile.jpg"
         className="rounded-full"
         height={144}
