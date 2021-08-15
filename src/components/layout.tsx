@@ -4,6 +4,7 @@ import Navbar from './navbar'
 import Consts from '../lib/consts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import GoogleAnalytics from './google-analytics'
 
 export default function Layout({
   children,
@@ -15,6 +16,7 @@ export default function Layout({
   return (
     <div className="flex flex-col min-h-full">
       <Head>
+        <GoogleAnalytics />
         <link href="/images/favicon-196.png" rel="shortcut icon" type="image/png" />
         <link href="/images/favicon-196.png" rel="shortcut icon" sizes="196x196" />
         <link href="/images/favicon-196.png" rel="apple-touch-icon" />
