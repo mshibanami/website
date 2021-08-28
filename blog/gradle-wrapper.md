@@ -19,7 +19,7 @@ mainClassName = "org.gradle.sample.Main"
 
 そして次のコマンドを実行する。
 
-```
+```zsh
 % gradle clean installDist
 ```
 
@@ -48,7 +48,9 @@ for (File f : langFiles) {
 
 この時、`dirUrl`は下記のようになっていた。
 
-    <プロジェクトルート>/build/install/<プログラム名>/lib/<プログラム名>.jar!/dir
+```bash
+<プロジェクトルート>/build/install/<プログラム名>/lib/<プログラム名>.jar!/dir
+```
 
 つまり、jarファイル内のdirフォルダを読み込むのに失敗している。
 
