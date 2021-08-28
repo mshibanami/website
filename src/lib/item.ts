@@ -1,7 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import convertMarkdownToHtml from './markdown'
 import { TextFormat, TextToHtmlConverter } from './text-to-html-converter'
 
 export function getSortedItems(itemType: ItemType) {
