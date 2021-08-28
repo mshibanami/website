@@ -17,13 +17,14 @@ export default function Blog({ allItems }: { allItems: Item[] }) {
             <ul className={utilStyles.list}>
                 {allItems.map((item) => (
                     <li className={utilStyles.listItem} key={item.id}>
-                        <Link href={`/blog/${item.id}`}>
-                            <a>{item.title}</a>
-                        </Link>
-                        <br />
-                        <small className="dynamic-text-gray-500">
+                        <h3>
+                            <Link href={`/blog/${item.id}`}>
+                                <a>{item.title}</a>
+                            </Link>
+                        </h3>
+                        <p className="dynamic-text-gray-500">
                             <Date dateString={item.createdAt} />
-                        </small>
+                        </p>
                     </li>
                 ))}
             </ul>

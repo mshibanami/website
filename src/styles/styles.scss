@@ -2,8 +2,6 @@
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
-@import "colors";
-@import "text-styles.module.scss";
 
 @media (prefers-color-scheme: light) {
   @import "./vendor/prism/_prism";
@@ -14,6 +12,9 @@
 }
 
 @layer base {
+  @import "colors";
+  @import "text-styles.module.scss";
+
   :root {
     @apply bg-white;
     @apply dark:bg-gray-800;
@@ -58,6 +59,16 @@
 
   a:hover {
     text-decoration: underline;
+  }
+
+  li {
+    h3 {
+      margin: 0;
+    }
+
+    p {
+      margin-block: 0.2em;
+    }
   }
 }
 
