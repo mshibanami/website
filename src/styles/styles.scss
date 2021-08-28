@@ -1,7 +1,8 @@
 @charset 'utf-8';
-@import "~tailwindcss/base";
-@import "~tailwindcss/components";
-@import "~tailwindcss/utilities";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @media (prefers-color-scheme: light) {
   @import "./vendor/prism/_prism";
@@ -12,8 +13,7 @@
 }
 
 @layer base {
-  @import "colors";
-  @import "text-styles.module.scss";
+  @import "text-styles.scss";
 
   :root {
     @apply bg-white;
