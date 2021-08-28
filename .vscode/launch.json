@@ -4,15 +4,15 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Next: Node",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/next",
-            "port": 9229,
-            "env": {
-                "NODE_OPTIONS": "--inspect"
-            },
-            "sourceMapPathOverrides": {
-                "webpack:///*": "${webRoot}/server/*"
-            },
+            "name": "Launch Next.js app",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "dev"
+            ],
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
             "resolveSourceMapLocations": [
                 "${workspaceFolder}/**",
                 "!**/node_modules/**"
