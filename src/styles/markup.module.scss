@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-.markdown {
+.markup {
   table {
     @apply divide-gray-200;
     display: block;
@@ -55,5 +55,9 @@
     @apply dynamic-text-gray-500;
     border-left: 0.25em solid #aaa;
     padding: 0 1em;
+  }
+
+  :global(.imageblock) {
+    padding: 0.5em 0;
   }
 }

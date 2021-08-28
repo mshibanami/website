@@ -32,7 +32,7 @@ export default function Navbar() {
                     </a>
                 </Link>
                 <button id="navbar-toggle" className="border border-solid border-gray-600 px-3 py-2 rounded dynamic-text-gray-600 opacity-50 hover:opacity-75 md:hidden">
-                    <FontAwesomeIcon className="fill-current h-3 w-3" icon={faBars} />
+                    <FontAwesomeIcon className="fill-current h-5 w-5" icon={faBars} />
                 </button>
             </div>
             <NavBarItems />

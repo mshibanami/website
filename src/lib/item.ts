@@ -3,11 +3,13 @@ import path from 'path'
 import matter from 'gray-matter'
 import { TextFormat, TextToHtmlConverter } from './text-to-html-converter'
 
+const fileExtensionRegex = /\.[0-9a-z]+$/;
+
 export function getSortedItems(itemType: ItemType) {
     const dir = ItemType.directoryOf(itemType)
     const fileNames = fs.readdirSync(dir)
     const allItems = fileNames.map(fileName => {
-        const id = fileName.replace(/\.md$/, '')
+        const id = fileName.replace(fileExtensionRegex, '')
         const fullPath = path.join(dir, fileName)
         const fileContents = fs.readFileSync(fullPath, 'utf8')
         const matterResult = matter(fileContents)
@@ -24,7 +26,7 @@ export function getSortedItems(itemType: ItemType) {
 export function getAllItemIds(itemType: ItemType) {
     const fileNames = fs.readdirSync(ItemType.directoryOf(itemType))
     return fileNames.map(fileName => {
-        return fileName.replace(/\.md$/, '')
+        return fileName.replace(fileExtensionRegex, '')
     })
 }
 
@@ -34,7 +36,7 @@ export async function getItem(id: string, itemType: ItemType): Promise<Item> {
     const fileName = fileNames.filter((fileName) => fileName.includes(id))[0];
     const extension = fileName.split('.').at(-1);
     const fileFormat = TextFormat.fromExtension(extension);
-    const fullPath = path.join(ItemType.directoryOf(itemType), `${id}.md`)
+    const fullPath = path.join(ItemType.directoryOf(itemType), fileName)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const matterResult = matter(fileContents)
     const contentHtml = await new TextToHtmlConverter().convert(matterResult.content, fileFormat);
@@ -44,8 +46,6 @@ export async function getItem(id: string, itemType: ItemType): Promise<Item> {
         fileFormat,
         ...(matterResult.data as Item)
     }
-
-    return null;
 }
 
 export function convertTextToHtml(text: String, contentFormat: TextFormat): TextFormat {

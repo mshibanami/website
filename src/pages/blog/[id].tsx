@@ -2,7 +2,7 @@ import Layout from '../../components/layout'
 import { getAllItemIds, getItem, Item, ItemType } from '../../lib/item'
 import Head from 'next/head'
 import Date from '../../components/date'
-import markdownStyles from '../../styles/markdown.module.scss'
+import markupStyles from '../../styles/markup.module.scss'
 import { GetStaticProps, GetStaticPaths } from 'next'
 
 export default function BlogPost({ item }: { item: Item }) {
@@ -11,7 +11,7 @@ export default function BlogPost({ item }: { item: Item }) {
       <Head>
         <title>{item.title}</title>
       </Head>
-      <article className={markdownStyles.markdown}>
+      <article className={markupStyles.markup}>
         <h1>{item.title}</h1>
         <div className="dynamic-text-gray-500">
           <Date dateString={item.createdAt} />
