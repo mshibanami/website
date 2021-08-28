@@ -1,5 +1,7 @@
 {
-  "extends": "next",
+  "extends": [
+    "next"
+  ],
   "rules": {
     // Temporary off.
     // Delete this once Next.js oficially supports for the image optimization for static websites.

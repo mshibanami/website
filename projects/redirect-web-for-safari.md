@@ -7,13 +7,11 @@ thumbnailPath: "/images/RedirectWebForSafari_Screenshot.png"
 
 ![Window of Redirect Web for Safari](/images/RedirectWebForSafari_Screenshot.png)
 
+<a href="https://itunes.apple.com/app/id1571283503">![appstore-badge](/images/appstore-badge.svg)</a>
+
 ## Description
 
 This is a Safari extension that allows you to redirect specific URLs to anywhere you want to jump.
-
-## Links
-
-Put App Store link here.
 
 ## Privacy Policy
 

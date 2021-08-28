@@ -3,6 +3,8 @@ import Head from 'next/head'
 import markdownStyles from '../../styles/markdown.module.scss'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getAllItemIds, getItem, Item, ItemType } from '../../lib/item'
+import path from 'path'
+import fs from 'fs'
 
 export default function Project({ item }: { item: Item }) {
   return (
