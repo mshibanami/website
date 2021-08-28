@@ -50,7 +50,7 @@ export default function Layout({
         <div className="justify-center content-center">
           <SNSLinks />
         </div>
-        <p className="text-center">© {new Date().getFullYear()} {Consts.AUTHOR_NAME}</p>
+        <p className="text-center">{Consts.COPYRIGHT}</p>
       </footer>
     </div>
   )
