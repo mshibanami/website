@@ -1,6 +1,6 @@
+import { remark } from 'remark'
 import remarkPrism from 'remark-prism'
 import remarkGfm from 'remark-gfm'
-import remark from 'remark'
 import remarkHtml from 'remark-html'
 import Asciidoctor from 'asciidoctor'
 
