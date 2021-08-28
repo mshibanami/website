@@ -1,0 +1,21 @@
+---
+title: Translate Web for Safari
+createdAt: "2020-05-31"
+description: Safari extension that translates the current tab or selected text.
+thumbnailPath: "/images/TranslateWebForSafari_Screenshot.jpg"
+---
+
+image::/images/TranslateWebForSafari_Screenshot.jpg[Window of Redirect Web for Safari]
+
+[.text-center]
+image::/images/appstore-badge.svg[App Store badge, link="https://itunes.apple.com/app/id1513175329"]
+
+This is a Safari extension that translates the current tab or selected text.
+
+You can get this extension from the above App Store link or https://github.com/mshibanami/TranslateWebForSafari/releases[Releases on Github].
+
+== Privacy Policy
+
+**Translate Web for Safari** does not collect your personal information.
+
+**Personal information** is information or an opinion about an identified individual or an individual who is reasonably identifiable.
