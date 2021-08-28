@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useEffect } from "react";
 import Consts from "../lib/consts";
-import navbarStyles from "./navbar.module.scss";
+import navbarStyles from "../styles/utils.module.scss";
 
 export default function Navbar() {
     useEffect(() => {
