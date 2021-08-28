@@ -75,9 +75,9 @@ function HomeTopContent() {
 function SNSLinks() {
   return (
     <div className={`${utilStyles.snsLinks}`}>
-      <a href={Consts.TWITTER_URL}><FontAwesomeIcon icon={faTwitter} size="1x" /></a>
-      <a href={Consts.GITHUB_URL}><FontAwesomeIcon icon={faGithub} size="1x" /></a>
-      <a href={Consts.LINKEDIN_URL}> <FontAwesomeIcon icon={faLinkedin} size="1x" /></a>
+      <a href={Consts.TWITTER_URL}><FontAwesomeIcon icon={faTwitter} size="2x" /></a>
+      <a href={Consts.GITHUB_URL}><FontAwesomeIcon icon={faGithub} size="2x" /></a>
+      <a href={Consts.LINKEDIN_URL}> <FontAwesomeIcon icon={faLinkedin} size="2x" /></a>
     </div>
   )
 }
