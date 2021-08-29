@@ -1,4 +1,6 @@
 class Consts {
+    static readonly BASE_URL = 'https://mshibanami.github.io'
+
     static readonly AUTHOR_NAME = 'Manabu Nakazawa'
     static readonly AUTHOR_ACCOUNT_ID = 'mshibanami'
     static readonly AUTHOR_EMAIL = 'mshibanami+website@gmail.com'

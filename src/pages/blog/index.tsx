@@ -33,7 +33,7 @@ export default function Blog({ allItems }: { allItems: Item[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const allItems = getSortedItems(ItemType.BlogPost)
+    const allItems = await getSortedItems(ItemType.BlogPost)
     return {
         props: {
             allItems

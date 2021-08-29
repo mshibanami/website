@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import Consts from '../lib/consts'
 import Layout from '../components/layout'
+import generateRssFeed from '../lib/rss'
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ function ContentLinks() {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  generateRssFeed();
   return {
     props: {}
   }

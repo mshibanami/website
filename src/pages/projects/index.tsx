@@ -46,7 +46,7 @@ function ProjectTile({ item }: { item: Item }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const allItems = getSortedItems(ItemType.Project)
+    const allItems = await getSortedItems(ItemType.Project)
     return {
         props: {
             allItems: allItems

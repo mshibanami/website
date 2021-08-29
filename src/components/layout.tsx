@@ -20,6 +20,8 @@ export default function Layout({
         <link href="/images/favicon-196.png" rel="shortcut icon" type="image/png" />
         <link href="/images/favicon-196.png" rel="shortcut icon" sizes="196x196" />
         <link href="/images/favicon-196.png" rel="apple-touch-icon" />
+        <link href="" rel="apple-touch-icon" />
+        <link rel="alternate" type="application/atom+xml" title="Updates" href="updates.atom"></link>
         <meta
           name="description"
           content={Consts.PAGE_DESCRIPTION}

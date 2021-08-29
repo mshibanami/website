@@ -5,45 +5,42 @@ import { TextFormat, TextToHtmlConverter } from './text-to-html-converter'
 
 const fileExtensionRegex = /\.[0-9a-z]+$/;
 
-export function getSortedItems(itemType: ItemType) {
-    const dir = ItemType.directoryOf(itemType)
+export async function getSortedItems(itemType: ItemType): Promise<Item[]> {
+    const dir = ItemType.fileDirectoryOf(itemType)
     const fileNames = fs.readdirSync(dir)
-    const allItems = fileNames.map(fileName => {
+    const allItems = await Promise.all(fileNames.map(async fileName => {
         const id = fileName.replace(fileExtensionRegex, '')
-        const fullPath = path.join(dir, fileName)
-        const fileContents = fs.readFileSync(fullPath, 'utf8')
-        const matterResult = matter(fileContents)
-        return {
-            id,
-            ...(matterResult.data as Item)
-        }
-    })
+        return await getItem(id, itemType)
+    }))
     return allItems.sort((a, b) => {
         return a.createdAt < b.createdAt ? 1 : -1
     })
 }
 
 export function getAllItemIds(itemType: ItemType) {
-    const fileNames = fs.readdirSync(ItemType.directoryOf(itemType))
+    const fileNames = fs.readdirSync(ItemType.fileDirectoryOf(itemType))
     return fileNames.map(fileName => {
         return fileName.replace(fileExtensionRegex, '')
     })
 }
 
 export async function getItem(id: string, itemType: ItemType): Promise<Item> {
-    const postsDirectory = ItemType.directoryOf(itemType);
+    const postsDirectory = ItemType.fileDirectoryOf(itemType);
     const fileNames = fs.readdirSync(postsDirectory)
     const fileName = fileNames.filter((fileName) => fileName.includes(id))[0];
     const extension = fileName.split('.').at(-1);
-    const fileFormat = TextFormat.fromExtension(extension);
-    const fullPath = path.join(ItemType.directoryOf(itemType), fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-    const matterResult = matter(fileContents)
-    const contentHtml = await new TextToHtmlConverter().convert(matterResult.content, fileFormat);
+    const textFormat = TextFormat.fromExtension(extension);
+    const sourceFilePath = path.join(ItemType.fileDirectoryOf(itemType), fileName)
+    const outputPath = ItemType.outputPathOf(itemType) + '/' + id;
+    const fileContent = fs.readFileSync(sourceFilePath, 'utf8')
+    const matterResult = matter(fileContent)
+    const contentHtml = await new TextToHtmlConverter().convert(matterResult.content, textFormat);
     return {
         id,
         contentHtml,
-        fileFormat,
+        textFormat,
+        sourceFileAbsolutePath: sourceFilePath,
+        outputPath,
         ...(matterResult.data as Item)
     }
 }
@@ -59,7 +56,9 @@ export function convertTextToHtml(text: String, contentFormat: TextFormat): Text
 
 export type Item = {
     id: string
-    fileFormat: TextFormat
+    sourceFileAbsolutePath: string
+    outputPath: string
+    textFormat: TextFormat
     createdAt: string
     title: string
     language: string
@@ -74,12 +73,16 @@ export enum ItemType {
 }
 
 export namespace ItemType {
-    export function directoryOf(itemType: ItemType): string {
+    export function fileDirectoryOf(itemType: ItemType): string {
+        return path.join(process.cwd(), outputPathOf(itemType))
+    }
+
+    export function outputPathOf(itemType: ItemType): string {
         switch (itemType) {
             case ItemType.BlogPost:
-                return path.join(process.cwd(), 'blog')
+                return 'blog'
             case ItemType.Project:
-                return path.join(process.cwd(), 'projects')
+                return 'projects'
         }
     }
 }
