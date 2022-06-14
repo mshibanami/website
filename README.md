@@ -3,7 +3,7 @@
 ### Prepare
 
 ```bash
-yarn install
+npm install
 ```
 
 ### Run for development
