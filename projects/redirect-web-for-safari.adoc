@@ -1,7 +1,7 @@
 ---
 title: Redirect Web for Safari
 createdAt: "2021-08-04"
-description: Safari extension that allows you to redirect specific URLs to anywhere you want to jump.
+description: Safari extension for iOS and macOS that allows you to redirect from a specific URL to wherever you want to jump.
 thumbnailPath: "/images/RedirectWebForSafari_Screenshot.jpg"
 ---
 
@@ -10,7 +10,7 @@ image::/images/RedirectWebForSafari_Screenshot.jpg[Window of Redirect Web for Sa
 [.text-center]
 image::/images/appstore-badge.svg[App Store badge, link="https://itunes.apple.com/app/id1571283503"]
 
-This is a Safari extension that allows you to redirect specific URLs to anywhere you want to jump.
+This is a Safari extension for iOS and macOS that allows you to redirect from a specific URL to wherever you want to jump.
 
 == Privacy Policy
 
