@@ -8,7 +8,7 @@ thumbnailPath: "/images/TranslateWebForSafari_Screenshot.jpg"
 image::/images/TranslateWebForSafari_Screenshot.jpg[Window of Redirect Web for Safari]
 
 [.text-center]
-image::/images/appstore-badge.svg[App Store badge, link="https://itunes.apple.com/app/id1513175329"]
+image::/images/appstore-badge.svg[App Store badge, link="https://apps.apple.com/app/id1513175329"]
 
 This is a Safari extension that translates the current tab or selected text.
 
