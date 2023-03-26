@@ -19,7 +19,7 @@ export default function Blog({ allItems }: { allItems: Item[] }) {
                     <li className={utilStyles.listItem} key={item.id}>
                         <h3>
                             <Link href={`/blog/${item.id}`}>
-                                <a>{item.title}</a>
+                                {item.title}
                             </Link>
                         </h3>
                         <p className="dynamic-text-gray-500">
@@ -29,7 +29,7 @@ export default function Blog({ allItems }: { allItems: Item[] }) {
                 ))}
             </ul>
         </Layout>
-    )
+    );
 }
 
 export const getStaticProps: GetStaticProps = async () => {

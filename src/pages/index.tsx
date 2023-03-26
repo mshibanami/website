@@ -22,16 +22,16 @@ function ContentLinks() {
       {
         Consts.CONTENT_SECTIONS.map((section) => {
           return (
-            <Link href={section.href} passHref key={section.href}>
+            <Link href={section.href} passHref key={section.href} legacyBehavior>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-40">
                 {section.title}
               </button>
             </Link>
-          )
+          );
         })
       }
     </section>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
