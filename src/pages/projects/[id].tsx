@@ -39,9 +39,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const item = await getItem(
     params.id as string,
     ItemType.Project)
-  return {
-    props: {
-      item
+
+  if (item.redirectDestination == null) {
+    return {
+      props: {
+        item
+      }
+    }
+  } else {
+    return {
+      redirect: {
+        destination: item.redirectDestination,
+        permanent: true,
+      },
     }
   }
 }

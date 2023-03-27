@@ -65,6 +65,7 @@ export type Item = {
     contentHtml: string
     description: string
     thumbnailPath: string
+    redirectDestination: string
 }
 
 export enum ItemType {
