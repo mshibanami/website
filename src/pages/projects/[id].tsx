@@ -1,10 +1,19 @@
 import Layout from '../../components/layout'
 import Head from 'next/head'
 import markupStyles from '../../styles/markup.module.scss'
+import React, { useEffect } from "react"
+import { useRouter } from "next/router"
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getAllItemIds, getItem, Item, ItemType } from '../../lib/item'
 
 export default function Project({ item }: { item: Item }) {
+  const router = useRouter();
+  useEffect(() => {
+    const redirectDestination = item.redirectDestination;
+    if (redirectDestination != null) {
+      router.push(item.redirectDestination);
+    }
+  });
   return (
     <Layout>
       <Head>
@@ -39,19 +48,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const item = await getItem(
     params.id as string,
     ItemType.Project)
-
-  if (item.redirectDestination == null) {
-    return {
-      props: {
-        item
-      }
-    }
-  } else {
-    return {
-      redirect: {
-        destination: item.redirectDestination,
-        permanent: true,
-      },
+  return {
+    props: {
+      item
     }
   }
 }
